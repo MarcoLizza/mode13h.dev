@@ -23,7 +23,7 @@ harmony:
   author: # Author details
     name: Marco Lizza
     email: marco.lizza@gmail.com
-    url: http://marcolizza.github.io
+    url: https://marcolizza.github.io
 
   # Google Analytics key, leave blank to ignore
   google:
@@ -53,16 +53,14 @@ permalink:  pretty
 
 exclude: 
   - CNAME
-  - Gemfile
-  - Rakefile
   - README.md
   - .gitignore
   - .sass-cache
-  - Gemfile.lock
 
 # Sass conversion configs
 sass:
     sass_dir: assets/css/_sass
     style: :compressed
 
-gems: [jekyll-tidy]
+gems:
+  - jekyll-tidy
