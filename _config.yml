@@ -4,7 +4,8 @@
 baseurl: 
 
 # Site live URL
-url: https://marcolizza.github.io
+url: https://www.ilitomic.net
+enforce_ssl: www.ilitomic.net
 #url: http://127.0.0.1:4000  
 
 # Harmony theme configuration. Please change accordingly.
