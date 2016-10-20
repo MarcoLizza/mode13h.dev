@@ -10,9 +10,9 @@ enforce_ssl: www.ilitomic.net
 
 # Harmony theme configuration. Please change accordingly.
 harmony:
-  name: brainasylum
+  name: ilitomic
   # Little description about your site
-  description: ( VoID )
+  description: ( .. .-. .. ... )
   # 'meta_description:' Write an awesome description for your new site here.
   # It will appear in your document head meta (for Google search results) and 
   # in your feed.xml site description.
@@ -24,7 +24,7 @@ harmony:
   author: # Author details
     name: Marco Lizza
     email: marco.lizza@gmail.com
-    url: https://marcolizza.github.io
+    url: https://www.ilitomic.net
 
   # Google Analytics key, leave blank to ignore
   google:
@@ -50,7 +50,7 @@ kramdown:
   syntax_highlighter: rouge
 
 # Permalinks
-permalink:  pretty
+permalink: pretty
 
 exclude: 
   - CNAME
@@ -60,8 +60,8 @@ exclude:
 
 # Sass conversion configs
 sass:
-    sass_dir: assets/css/_sass
-    style: :compressed
+  sass_dir: assets/css/_sass
+  style: :compressed
 
 gems:
   - jekyll-tidy
