@@ -4,8 +4,8 @@
 baseurl: 
 
 # Site live URL
-url: https://www.ilitomic.net
-enforce_ssl: www.ilitomic.net
+url: https://ilitomic.net
+enforce_ssl: ilitomic.net
 #url: http://127.0.0.1:4000  
 
 # Harmony theme configuration. Please change accordingly.
@@ -24,7 +24,7 @@ harmony:
   author: # Author details
     name: Marco Lizza
     email: marco.lizza@gmail.com
-    url: https://www.ilitomic.net
+    url: https://ilitomic.net
 
   # Google Analytics key, leave blank to ignore
   google:
