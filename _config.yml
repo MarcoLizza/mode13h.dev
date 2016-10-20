@@ -13,6 +13,9 @@ harmony:
   name: ilitomic
   # Little description about your site
   description: ( .. .-. .. ... )
+  long_description: > # 
+   The path of the righteous man is beset on all sides by the iniquities of
+   the selfish and the tyranny of evil men. 
   # 'meta_description:' Write an awesome description for your new site here.
   # It will appear in your document head meta (for Google search results) and 
   # in your feed.xml site description.
