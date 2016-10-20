@@ -8,6 +8,9 @@ url: https://ilitomic.net
 enforce_ssl: ilitomic.net
 #url: http://127.0.0.1:4000  
 
+title: "ilitomic"
+title_image: "http://www.gravatar.com/avatar/c6431dfdc8881de5ba4284bd30ef453b?s=500&r=g"
+
 # Harmony theme configuration. Please change accordingly.
 harmony:
   name: ilitomic
