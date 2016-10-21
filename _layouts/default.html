@@ -7,6 +7,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <meta name="description" content="{{ site.harmony.description }}" />
         <link rel="canonical" href="{{ site.url }}{{ page.url }}" />
+        <link rel="shortcut icon" type="image/png" href="/assets/favicon.png" />
 
         <!-- Harmony styles -->
         <link rel="stylesheet" type="text/css" href="{{ site.baseurl }}/assets/css/main.css" />
@@ -29,11 +30,9 @@
         <!-- Header -->
         <header class="main-header">
             <div class="wc-container">
-                <div class="gravatar">
-                    <img src="{{ site.title_image }}" class="img-square about-image" height="150" width="150" alt="{{ site.title }}" />
-                </div>
+                <img src="{{ site.title_image }}" class="img-square about-image" height="150" width="150" alt="{{ site.title }}" />
                 <h1><a href="{{ site.baseurl }}/">{{ site.harmony.name }}</a></h1>
-                <h2>{{ site.harmony.description }}</h2>
+                <h6>{{ site.harmony.description }}</h6>
                 {% include header-links.html %}
             </div>
         </header>

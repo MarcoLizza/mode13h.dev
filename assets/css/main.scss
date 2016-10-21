@@ -71,7 +71,7 @@ h1, h2, h3, h4, h5, h6 {
 
 h1 {
   // mobile first
-  @include font-size(20px);
+  @include font-size(22px);
   @include MQ(M) {
     @include font-size(36px);
   }
@@ -79,14 +79,14 @@ h1 {
 
 h2 {
   // mobile first
-  @include font-size(18px);
+  @include font-size(20px);
   @include MQ(M) {
-    @include font-size(31px);
+    @include font-size(32px);
   }
 }
 
 h3 {
-  @include font-size(15px);
+  @include font-size(18px);
   @include MQ(M) {
     @include font-size(30px);
   }
@@ -102,14 +102,14 @@ h4 {
 h5 {
   @include font-size(14px);
   @include MQ(M) {
-    @include font-size(22px);
+    @include font-size(18px);
   }
 }
 
 h6 {
-  @include font-size(14px);
+  @include font-size(10px);
   @include MQ(M) {
-    @include font-size(19px);
+    @include font-size(14px);
   }
 }
 
@@ -172,7 +172,9 @@ a.default-anchor {
 }
 
 div.default-page-content {
-  h1, h2, h3, h4, h5, h6 { color: $base-00; }
+  h1, h2, h3, h4, h5, h6 {
+    color: $base-00;
+  }
 }
 
 body {
@@ -196,7 +198,13 @@ header.main-header {
   color: $base-00;
   border-top: 5px $base-00 solid;
 
-  h1, h2 { text-align: center; color: inherit;}
+  h1, h2, h3, h4, h5, h6 {
+    text-align: center;
+    color: inherit;
+  }
+  h3, h4, h5, h6 {
+    color: $color-3;
+  }
   a {
     color: inherit;
     &:hover, &:active, &:focus {
@@ -655,14 +663,8 @@ div.posts {
 div.post {
   padding-top: .5em;
   padding-bottom: 1em;
-  border-bottom: 1px $base-05 solid;
   @include MQ(M) {
-
     padding-bottom: 2em;
-  }
-
-  &:last-child {
-    border-bottom: none;
   }
 }
 p.post-meta {
@@ -675,6 +677,28 @@ p.post-meta {
   color: #7A7A7A;
   @include MQ(M) {
     @include font-size(16px);
+  }
+  .post-date {
+    display: inline-block;
+    padding: 0 25px;
+    position: relative;
+    margin: 0;
+  }
+  .post-date:before,
+  .post-date:after {
+    background: $base-05;
+    content: '';
+    display: block;
+    height: 2px;
+    position: absolute;
+    top: 50%;
+    width: 75px;
+  }
+  .post-date:before {
+    left: -75px;
+  }
+  .post-date:after {
+    right: -75px;
   }
 }
 
