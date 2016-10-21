@@ -659,25 +659,7 @@ Post styles
 
 div.posts {
   text-align: center;
-}
-div.post {
-  padding-top: .5em;
-  padding-bottom: 1em;
-  @include MQ(M) {
-    padding-bottom: 2em;
-  }
-}
-p.post-meta {
-  line-height: 1.6;
-  letter-spacing: 2px;
-  @include font-size(12px);
-  overflow: hidden;
-  display: block;
-  padding: 1em 0;
-  color: #7A7A7A;
-  @include MQ(M) {
-    @include font-size(16px);
-  }
+  
   .post-date {
     display: inline-block;
     padding: 0 25px;
@@ -699,6 +681,25 @@ p.post-meta {
   }
   .post-date:after {
     right: -75px;
+  }
+}
+div.post {
+  padding-top: .5em;
+  padding-bottom: 1em;
+  @include MQ(M) {
+    padding-bottom: 2em;
+  }
+}
+p.post-meta {
+  line-height: 1.6;
+  letter-spacing: 2px;
+  @include font-size(12px);
+  overflow: hidden;
+  display: block;
+  padding: 1em 0;
+  color: #7A7A7A;
+  @include MQ(M) {
+    @include font-size(16px);
   }
 }
 
