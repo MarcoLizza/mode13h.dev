@@ -2,6 +2,7 @@
 layout: post
 title:  "What is Jekyll!"
 date:   2014-07-28 22:48:45
+permalink: welcome-to-jekyll
 description: Jekyll is a static site generator, an open-source tool for creating simple yet powerful websites of all shapes and sizes.
 comments: true
 categories:

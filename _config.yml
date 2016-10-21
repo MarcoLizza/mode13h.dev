@@ -60,6 +60,7 @@ permalink: pretty
 
 exclude: 
   - CNAME
+  - LICENSE
   - README.md
   - Gemfile
   - Gemfile.lock
@@ -71,5 +72,7 @@ sass:
   sass_dir: assets/css/_sass
   style: :compressed
 
-gems:
-  - jekyll-tidy
+jekyll_tidy:
+  compress_html: false
+
+gems: [jekyll-tidy]
