@@ -9,7 +9,7 @@ enforce_ssl: ilitomic.net
 #url: http://127.0.0.1:4000  
 
 title: "ilitomic"
-title_image: "//www.gravatar.com/avatar/c6431dfdc8881de5ba4284bd30ef453b?s=500&r=g"
+title_image: "/assets/images/atom.png"
 
 # Harmony theme configuration. Please change accordingly.
 harmony:
