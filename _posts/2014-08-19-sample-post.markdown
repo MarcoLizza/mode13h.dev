@@ -13,6 +13,20 @@ Just a sample post to show some of the *typography* elements supported from
 
 ___
 
+# This is heading 1
+
+## This is heading 2
+
+### This is heading 3
+
+#### This is heading 4
+
+##### This is heading 5
+
+###### This is heading 6
+
+---
+
 A blockquote:
 
 > Donec in mollis eros, nec rutrum turpis. **Curabitur** sem elit, semper nec volutpat quis, laoreet et sapien. In felis erat, rhoncus sed pellentesque mollis, tincidunt quis elit.
