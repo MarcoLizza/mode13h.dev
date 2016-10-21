@@ -15,15 +15,9 @@ title_image: "/assets/images/atom.png"
 harmony:
   name: ilitomic
   # Little description about your site
-  description: ( .. .-. .. ... )
-  # 'meta_description:' Write an awesome description for your new site here.
-  # It will appear in your document head meta (for Google search results) and 
-  # in your feed.xml site description.
-  meta_description: > # 
-   Harmony is a free responsive jekyll theme by Gayan Virajith
-   and Maheshika Lakmali. Sourced on Github - 
-   https://github.com/gayanvirajith/harmony
-  basetheme: theme-base-01 # pre defined thmes are darken, blue-water, redish.
+  description: The adventures of a night-time gamedev and tech enthusiast.
+  # pre defined thmes are darken, blue-water, redish.
+  basetheme: theme-base-01
   author: # Author details
     name: Marco Lizza
     email: marco.lizza@gmail.com
