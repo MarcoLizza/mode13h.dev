@@ -42,7 +42,9 @@ harmony:
     gplus: +MarcoLizza
     linkedin: marco-lizza-46569a34  
     disqus: ilitomic
+
   # Toggle disclaimer in footer
+  show_license: true
   show_disclaimer: false
 
 # Conversion / Build settings 
