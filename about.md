@@ -1,7 +1,7 @@
 ---
 layout: page
-title: About me
 permalink: /about/
+title: About me
 ---
 
 Hi, I am Gayan Virajith, a developer (who works on the web) based on Sri Lanka. 

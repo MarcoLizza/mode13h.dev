@@ -1,7 +1,7 @@
 ---
 layout: default
-title: Archive
 permalink: /archive/
+title: Archive
 ---
 <div class="page-content wc-container">
   <h1>Archive</h1>

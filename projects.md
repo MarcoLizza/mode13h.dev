@@ -1,8 +1,8 @@
 ---
-title: Projects
-author: marco.lizza
 layout: page
 permalink: "/projects/"
+title: Projects
+author: marco.lizza
 comments: false
 categories: 
   - projects
