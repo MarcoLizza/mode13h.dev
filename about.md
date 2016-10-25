@@ -10,7 +10,7 @@ I am a software engineer (at day) and indie game developer (at night). A video-g
 
 ### Contact me
 
-You can find me on [Twitter][Twitter] / [Github][github] or just say `Hello` at [marco.lizza@gmail.com](marco.lizza@gmail.com).
+You can find me on [Twitter][Twitter] or [Github][github].
 
 
 [github]: https://github.com/MarcoLizza
