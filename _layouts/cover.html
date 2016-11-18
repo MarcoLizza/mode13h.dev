@@ -1,0 +1,25 @@
+---
+layout: default
+---
+<!-- page -->
+<div class="container front-page">
+  <!-- page content -->
+  {% for post in site.posts limit:10 %}
+  <div class="row post-entry">
+    <h4>
+      <a href="{{ post.url | prepend: site.baseurl | prepend: site.url }}">{{ post.title }}</a>
+    </h4>
+    <p>
+      {{ post.date | date: "%d %B %Y" }}
+      {% if post.categories.size > 0 %}
+      / {{ post.categories | array_to_sentence_string }}
+      {% endif %}
+    </p>
+  </div>
+  {% endfor %}
+  <div class="row post-archive">
+    <h5>
+      <a href="{{ '/archive' | prepend: site.baseurl | prepend: site.url }}">&laquo; Older Posts &raquo;</a>
+    </h5>
+  </div>
+</div>

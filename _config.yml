@@ -1,55 +1,43 @@
-# Harmony Jekyll theme general configurations 
-
-# Base URL
-baseurl: 
-
-# Site live URL
-url: https://ilitomic.net
-enforce_ssl: ilitomic.net
-#url: http://127.0.0.1:4000  
-
+# Site settings
 title: "ilitomic"
-title_image: "/assets/images/atom.png"
+logo_url: "/assets/images/ilitomic-logo.png"
+email: marco.lizza@gmail.com
+description: / night-time gamedev and geek /
+url: "https://ilitomic.net" # the base hostname & protocol for your site
+#url: "http://localhost:4000" # the base hostname & protocol for your site
+baseurl: "" # the subpath of your site, e.g. /blog/
 
-# Harmony theme configuration. Please change accordingly.
-harmony:
-  name: ilitomic
-  # Little description about your site
-  description: ( yet another part-time gamedev and geek )
-  # pre-defined themes are darken, blue-water, redish.
-  basetheme: theme-base-01
-  author: # Author details
-    name: Marco Lizza
-    email: marco.lizza@gmail.com
-    url: https://ilitomic.net
+author: # Author details
+  name: Marco Lizza
+  email: marco.lizza@gmail.com
+  url: https://ilitomic.net
+  copyright: "&copy; Copyright 2016 by Marco Lizza"
 
-  # Google Analytics key, leave blank to ignore
-  google:
-    analytics_key: UA-86128117-1
+# Profile links, leave blank to ignore
+social: 
+  github: MarcoLizza
+  twitter: MarcoLizza
+  facebook: marco.lizza
+  itchio: MarcoLizza 
+  gplus: +MarcoLizza
+  linkedin: marco-lizza-46569a34  
+  disqus: ilitomic
 
-  # Profile links, leave blank to ignore
-  social: 
-    github: MarcoLizza
-    twitter: MarcoLizza
-    facebook: marco.lizza
-    itchio: MarcoLizza 
-    gplus: +MarcoLizza
-    linkedin: marco-lizza-46569a34  
-    disqus: ilitomic
+# Google Analytics key, leave blank to ignore
+google:
+  analytics_key: UA-86128117-1
 
-  # Toggle disclaimer in footer
-  show_license: false
-  show_disclaimer: false
-
-# Conversion / Build settings 
+# Build settings
 markdown: kramdown
 
 kramdown:
   input: GFM
   syntax_highlighter: rouge
 
-# Permalinks
-permalink: pretty
+permalink: /:title/
+
+include:
+  - _pages
 
 exclude: 
   - CNAME
@@ -60,12 +48,12 @@ exclude:
   - .gitignore
   - .sass-cache
 
-# Sass conversion configs
 sass:
   sass_dir: assets/css/_sass
   style: :compressed
 
+gems:
+  - jekyll-tidy
+
 jekyll_tidy:
   compress_html: false
-
-gems: [jekyll-tidy]

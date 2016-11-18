@@ -1,14 +1,11 @@
 ---
-layout: page
-permalink: "/projects/"
 title: Projects
 author: marco.lizza
-comments: false
-categories: 
-  - projects
-tags: 
-  - gamedev
-  - indiegame
+layout: page
+permalink: /projects/
+comments: true
+hide_meta: true
+published: true
 ---
 # #1GAM
 
