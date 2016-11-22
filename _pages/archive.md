@@ -15,7 +15,7 @@ published: true
       {% if forloop.first == false %}</ul>{% endif %}
   <ul class="posts">
     {% endif %}
-    <li><a href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a></li>
+    <li><a href="{{ post.url | prepend: site.baseurl | prepend: site.url  }}">{{ post.title }}</a></li>
     {% if forloop.last %}</ul>{% endif %}
     {% capture previous_year %}{{ current_year }}{% endcapture %}
   {% endfor %}
