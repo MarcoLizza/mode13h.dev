@@ -10,6 +10,22 @@
 
 -------------------------------- */
 
+body {
+  background-color: $background-color;
+  color: $text-color;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  color: $headings-color;
+}
+
+a {
+  color: $link-normal;
+}
+a:hover {
+  color: $link-hover;
+}
+
 html * {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -35,7 +51,7 @@ a {
 }
 
 hr {
-  border-top: 2px dashed #E1E1E1
+  border-top: 2px dashed $separator-color
 }
 
 /*----------------------------------------------------------------------------*/
@@ -208,7 +224,7 @@ footer.main-footer {
     max-width: 100%;
     display: block;
     margin: 3rem auto 3rem auto;
-    box-shadow: 0 0 2rem 0 rgba(20, 20, 20, 0.7);
+    box-shadow: 0 0 4rem 0 $box-color;
   }
 }
 
@@ -271,6 +287,20 @@ ul.menu {
   .post-meta {
     p {
       color: $post-meta-color;
+    }
+  }
+  .post-content {
+    ol, ul {
+      padding-left: 2em;
+    }
+    ol {
+      list-style: decimal outside none;
+    }
+    ul {
+      list-style: circle outside none;
+    }
+    blockquote {
+      font-style: italic;
     }
   }
 }
