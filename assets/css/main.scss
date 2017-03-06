@@ -298,6 +298,8 @@ ul.menu {
       list-style: circle outside none;
     }
     blockquote {
+      border-left: 1rem solid $secondary-color;
+      padding-left: 2rem;
       font-style: italic;
     }
   }
