@@ -288,6 +288,13 @@ ul.menu {
     }
   }
   .post-content {
+    h1 {
+      text-transform: capitalize;
+      border-bottom: 0.25rem solid $headings-color;
+    }
+    h2, h3, h4, h5, h6 {
+      font-style: italic;
+    }
     ol, ul {
       padding-left: 2em;
     }
