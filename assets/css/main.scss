@@ -298,9 +298,13 @@ ul.menu {
       list-style: circle outside none;
     }
     blockquote {
-      border-left: 1rem solid $secondary-color;
-      padding-left: 2rem;
+      background-color: $tertiary-color;
+      border-left: 0.5rem solid $headings-color;
+      padding: 1rem 2rem;
       font-style: italic;
+    }
+    blockquote p:last-child {
+      margin-bottom: 0px; // Don't insert margin in the last paragraph.
     }
   }
 }
