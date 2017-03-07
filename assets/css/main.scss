@@ -286,17 +286,58 @@ ul.menu {
       margin: 0;
     }
     p {
-      color: $post-meta-color;
+      color: $meta-color;
     }
   }
   .post-archive {
+    li {
+      font-variant: small-caps;
+    }
+  }
+}
+
+.page {
+  .page-meta {
+    h1 {
+      border-left: 0.75rem solid $headings-color;
+      padding-left: 1.5rem;
+    }
+    p {
+      color: $meta-color;
+    }
+  }
+  .page-content {
+    h1 {
+      border-bottom: 0.25rem solid $headings-color;
+    }
+    ol, ul {
+      padding-left: 2em;
+    }
+    ol {
+      list-style: decimal outside none;
+    }
+    ul {
+      list-style: circle outside none;
+    }
+    blockquote {
+      border-left: 0.5rem solid $secondary-color;
+      padding: 1rem 2rem;
+      font-style: italic;
+    }
+    blockquote p:last-child {
+      margin-bottom: 0px; // Don't insert margin in the last paragraph.
+    }
   }
 }
 
 .post {
   .post-meta {
+    h1 {
+      border-left: 0.75rem solid $headings-color;
+      padding-left: 1.5rem;
+    }
     p {
-      color: $post-meta-color;
+      color: $meta-color;
     }
   }
   .post-content {
@@ -313,8 +354,7 @@ ul.menu {
       list-style: circle outside none;
     }
     blockquote {
-      background-color: $tertiary-color;
-      border-left: 0.5rem solid $headings-color;
+      border-left: 0.5rem solid $secondary-color;
       padding: 1rem 2rem;
       font-style: italic;
     }
