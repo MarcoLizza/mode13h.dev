@@ -11,9 +11,9 @@ No developer, nowadays, refuses to adapt some kind of source code management fac
 
 *( a long time has passed since the 3.5&#8243; floppy disk backups )*
 
-I won&#8217;t try to convince you to use <a href="http://git-scm.com/" title="this" target="_blank">this</a> or <a href="http://mercurial.selenic.com" title="that" target="_blank">that</a> revision control program.
+I won't try to convince you to use <a href="http://git-scm.com/" title="this" target="_blank">this</a> or <a href="http://mercurial.selenic.com" title="that" target="_blank">that</a> revision control program.
 
-I just use <a href="http://git-scm.com/" title="Git" target="_blank">Git</a>. Because it&#8217;s versatile, powerful and supported almost everywhere. It can be somelike cumbersome to use, but <a href="http://www.sourcetreeapp.com" title="SourceTree" target="_blank">Atalassian&#8217;s SourceTree</a> made a successful effort in providing a nice and neat UI.
+I just use <a href="http://git-scm.com/" title="Git" target="_blank">Git</a>. Because it's versatile, powerful and supported almost everywhere. It can be somelike cumbersome to use, but <a href="http://www.sourcetreeapp.com" title="SourceTree" target="_blank">Atalassian's SourceTree</a> made a successful effort in providing a nice and neat UI.
 
 At some point, however you should seriously consider to adopt a branching model.
 

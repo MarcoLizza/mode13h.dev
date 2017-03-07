@@ -10,7 +10,7 @@ tags:
   - scripting
   - tinyjs
 ---
-If you&#8217;re in the search for a JavaScript interpreter for Your-Amazing-Application, I think this can be a valuable option.
+If you're in the search for a JavaScript interpreter for Your-Amazing-Application, I think this can be a valuable option.
 
 The good [Gordon Williams][1] implemented this tiny little interpreter some time ago.
 
