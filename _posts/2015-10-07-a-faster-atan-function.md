@@ -12,15 +12,15 @@ tags:
 ---
 Optimizing a function/algorithm/procedure is never an easy task. Luckily there's a whole bunch of cases where the *almighty LUT* (**L**ook-**U**p **T**able) makes it possible (and frequently in an easy way). The `atan()`  function (which alongside `atan2()` is quite a neat and useful, albeit underrated, function indeed) can be optimized by means of a LUT.
 
-In it's simplest incarnation the Look-Up Table is an array that serves as a *memoization cache* for (pre)calculated results of a function of chose. Let's see an example with the `sin()`  trigonometric function.
+In it's simplest incarnation the Look-Up Table is an array that serves as a *memoization cache* for (pre)calculated results of a function of chose. Let's see an example with the `sin()` trigonometric function.
 
-{% highlight C++ %}
+```c++
 double _sin[360];
 for (int i = 0; i < 360; ++i) {
     double radians = static_cast<double>(i) / 57.295779513082320876798154814105;
     _sin[i] = sin(radians);
 }
-{% endhighlight %}
+```
 
 So, considering single one degree steps, we have pre-calculated the whole (periodic) function values. Anytime we need compute `y = sin(x)` we simply access the array as `_sin[x % 360]`, with `x`  expressing the angle in degrees. We would call this method *forward access*, since we use the independent variable (or a function of it) as an index for the LUT to obtain the dependent variable (i.e. the result).
 
@@ -28,7 +28,7 @@ Arrays in C/C++ are handled efficiently thanks to the pointer arithmetic mechani
 
 The `atan()`  function maps values in the whole real numbers domain to values in the `-PI/2` and `+PI/2` range (boundaries excluded). Since the independent variable range is infinite we need to proceed the other way out and use the LUT in what we call a *reverse access* method. First of all we define the LUT size basing of the dependent variable range: a valid choice is the following:
 
-{% highlight C++ %}
+```c++
 // The range spans 180 degrees, but we want it to be centered and symmetric
 // with reference to the "zero" angle.
 int _atan[179];
@@ -38,13 +38,13 @@ for (int i = 0; < 179; ++i) {
     double radians = degrees / 57.295779513082320876798154814105;
     _atan[i] = static_cast<int>(tan(radians) * 1024.0);
 }
-{% endhighlight %}
+```
 
 > Note, that we are also getting rid of floating-point variables as their slowness is (in)famous among mobile-device developers, in favour of `22:10` fixed-point integers.
 
 Once the LUT is ready, to calculate `y = atan(x)`  we find the index `i` such as `_atan[i] < y < _atan[i + 1]`. To accomplish this we need to scan the LUT content; since we filled with ever-increasing values this will work perfectly. A simple access it as described for the `sin()` function won't work.
 
-{% highlight C++ %}
+```c++
 // [yx] need to be in fixed-point 22:10 format, so you may need to pre-multiply
 // the value prior calling the function.
 int atan(int yx)
@@ -63,11 +63,11 @@ int atan(int yx)
         return -88; // -89 will never be returned
     }
 }
-{% endhighlight %}
+```
 
 We can improve the algorithm by implementing a binary-search scan when accessing the LUT. In this case we define an empirical surrogated *recursion base limit* (even though the algorithm is iterative in nature) to stop the divide-and-branch part and go for a brute-force LUT scan (but since now is performed on a smaller part of the array its cost should be negligible)
 
-{% highlight C++ %}
+```c++
 #define BASE_LIMIT 25
 
 int bsearch(int value, int *vector, int length)
@@ -106,6 +106,6 @@ int atan(int yx) {
         return bsearch(yx, _atan, 179) - 89;
     }
 }
-{% endhighlight %}
+```
 
 If degrees unit is not enough for the application's need, we could go for 1/10th of 1/100th of degrees. The LUT size will increase and with such a growth in size the binary-search optimization will be crucial; otherwise, the LUT-based algorithm will end up less efficient (or, let's say, comparable efficient) than the standard, unoptimized, algorithm.
