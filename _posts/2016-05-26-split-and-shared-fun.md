@@ -11,7 +11,6 @@ tags:
   - gaming
   - indiedev
   - gamedev
-published: true
 ---
 
 There was a time when multiplayer games were not merely a virtualized social medium, but a real and tangible moment of physical meeting and confrontation (with related emotional bursts).

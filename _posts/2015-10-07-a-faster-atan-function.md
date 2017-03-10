@@ -3,7 +3,6 @@ title: 'A Faster "atan()" Function'
 author: marco.lizza
 layout: post
 permalink: /a-faster-atan-function/
-thumbnail: flask
 comments: true
 categories:
   - snippets

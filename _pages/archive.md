@@ -4,8 +4,6 @@ author: marco.lizza
 layout: page
 permalink: /archive/
 comments: false
-hide_meta: false
-published: true
 ---
 {% for post in site.posts %}
   {% capture current_year %}{{ post.date | date: "%Y" }}{% endcapture %}

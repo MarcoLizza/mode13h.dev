@@ -3,17 +3,13 @@ title: 'Taking The Challenge Up'
 author: marco.lizza
 layout: post
 permalink: "/taking-the-challenge-up/"
-thumbnail: gamepad
 comments: true
 categories: 
   - 1gam
 tags: 
   - 1gam
-  - onegameamonth
   - gamedev
   - indiegame
-  - love2d
-published: true
 ---
 
 Game projects tend to be quite a time consuming job.

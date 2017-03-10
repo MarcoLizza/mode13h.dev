@@ -3,17 +3,14 @@ title: 'The Eve Of #1gam'
 author: marco.lizza
 layout: post
 permalink: "/the-eve-of-1gam/"
-thumbnail: gamepad
 comments: true
 categories: 
   - 1gam
 tags: 
   - 1gam
-  - onegameamonth
   - gamedev
   - indiegame
   - love2d
-published: true
 ---
 
 It's been a while since I decided to take the challenge and try and develop one game in a month (for a year). Today is New Year's Eve and we are approaching the starting line, finally. Since it's my first experience with a third party engine, I've given myself a head-start. In the last weeks I've been making myself comfortable with the game engine ([L&Ouml;VE][1]) and the tool-chain I'll be using, while waiting to begin.

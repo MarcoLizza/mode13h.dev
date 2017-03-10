@@ -5,7 +5,6 @@ layout: page
 permalink: /projects/
 comments: true
 hide_meta: true
-published: true
 ---
 # #1GAM
 
