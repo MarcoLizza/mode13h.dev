@@ -8,8 +8,7 @@
     <header class="main-header">
       <div class="container">
         <div class="row">
-          <img src="{{ site.logo_url }}" class="logo" alt="{{ site.title }}" />
-          <h2><a href="{{ site.baseurl }}/">{{ site.title }}</a></h2>
+          <a href="{{ site.baseurl }}/"><img src="{{ site.logo_url }}" class="logo" alt="{{ site.title }}" /></a>
           <p class="description">{{ site.description }}</p>
           {% include header-links.html %}
         </div>
@@ -30,8 +29,7 @@
       <div class="container">
         <div class="row">
           <div class="twelve columns">
-            <img class="logo" alt="logo" src="{{ site.logo_url }}" />
-            <h5><a href="{{ site.baseurl }}/">{{ site.title }}</a></h5>
+            <a href="{{ site.baseurl }}/"><img class="logo" alt="logo" src="{{ site.logo_url }}" /></a>
             {% include social-links.html %}
             <p>{{ site.author.copyright }}</p>
           </div>
