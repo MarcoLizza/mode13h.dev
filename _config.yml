@@ -52,7 +52,7 @@ sass:
   sass_dir: assets/css/_sass
   style: :compressed
 
-gems:
+plugins:
   - jekyll-tidy
 
 jekyll_tidy:
