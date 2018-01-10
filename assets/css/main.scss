@@ -31,12 +31,14 @@ h2, h3, h4, h5, h6 {
   font-style: italic;
 }
 
-
 a {
   color: $link-normal;
 }
 a:hover {
   color: $link-hover;
+}
+a h1, a h2, a h3, a h4, a h5, a h6 {
+ text-shadow: #ffff00 0 0 16px;
 }
 
 html * {
