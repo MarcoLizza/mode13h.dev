@@ -1,19 +1,29 @@
+$Black: #1f1f1f;
+$Dark: #4d533c;
+$Mid: #8b956b;
+$Light: #c4cfa1;
+$White: #ffffff;
+//$Black: #0f380f;
+//$Dark: #306230;
+//$Mid: #8bac0f;
+//$Ligh: #9bbc0f;
+
 // General colors
-$background-color: #141d26;
-$secondary-background-color: #1b2836;
-$primary-color: white;
-$secondary-color: #558833;
-$tertiary-color: #4f6a82;
-$headings-color: #AAFF66;
-$separator-color: #243447;
-$box-color: rgba(170, 255, 102, 0.7);
-$border-color: white;
+$background-color: $Black;
+$secondary-background-color: $Dark;
+$primary-color: $White;
+$secondary-color: $Mid;
+$headings-color: $Light;
+$separator-color: $Dark;
+$box-color: rgba($Mid, 0.7);
+$border-color: $White;
+$shadow-color: $White;
 
 $text-color: $primary-color;
 $meta-color: $secondary-color;
 
-$link-normal:#AAFF66;
-$link-hover: #AAFF66;
+$link-normal: $Light;
+$link-hover: $Light;
 
 $social-link-normal: $primary-color; 
 $social-link-hover: $link-hover;

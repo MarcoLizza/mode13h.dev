@@ -17,7 +17,7 @@ body {
 
 h1, h2, h3, h4, h5, h6 {
   color: $headings-color;
-  text-shadow: #ffff00 0 0 16px;
+  text-shadow: $shadow-color 0 0 16px;
 }
 
 h1 {
@@ -38,7 +38,7 @@ a:hover {
   color: $link-hover;
 }
 a h1, a h2, a h3, a h4, a h5, a h6 {
- text-shadow: #ffff00 0 0 16px;
+ text-shadow: $shadow-color 0 0 16px;
 }
 
 html * {
@@ -135,8 +135,8 @@ footer.main-footer {
   }
   .logo {
     display: block;
-//    margin: 1rem 0;
-    margin: 0;
+    margin-top: 0.25em;
+    margin-bottom: 0.25em;
     margin-left: auto;
     margin-right: auto;
     width: 10%;
@@ -302,7 +302,7 @@ ul.menu {
 .page {
   .page-meta {
     h1 {
-      border-left: 0.75rem solid $headings-color;
+      border-left: 0.75rem solid $secondary-color;
       padding-left: 1.5rem;
     }
     p {
@@ -336,7 +336,7 @@ ul.menu {
 .post {
   .post-meta {
     h1 {
-      border-left: 0.75rem solid $headings-color;
+      border-left: 0.75rem solid $secondary-color;
       padding-left: 1.5rem;
     }
     p {
