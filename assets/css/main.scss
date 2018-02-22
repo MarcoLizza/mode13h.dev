@@ -108,12 +108,15 @@ header.main-header {
   }
   .logo {
     display: block;
-//    margin: 1rem 0;
-    margin: 0;
+    margin-top: 0.5em;
+    margin-bottom: 0.5em;
     margin-left: auto;
     margin-right: auto;
-    width: 20%;
-    height: 20%;
+    //width: 20%;
+    //height: 20%;
+    width: 100%;
+    max-width: 512px;
+    height: auto;
   }
   .description {
     text-align: center;
@@ -139,8 +142,11 @@ footer.main-footer {
     margin-bottom: 0.25em;
     margin-left: auto;
     margin-right: auto;
-    width: 10%;
-    height: 10%;
+//    width: 10%;
+//    height: 10%;
+    width: 100%;
+    max-width: 256px;
+    height: auto;
   }
   ul.social-media {
     width: 100%;
