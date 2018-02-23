@@ -5,28 +5,30 @@ layout: default
 <div class="container post">
   <!-- post content -->
   <div class="row post-meta">
-    <h1>{{ page.title }}</h1>
-    <p>
-      {{ page.date | date: "%d %B %Y" }}
-      {% if page.categories.size > 0 %}
-      / {{ page.categories | array_to_sentence_string }}
-      {% endif %}
-      <br />
-      {% if page.minutes %}
-        {% assign minutes = page.minutes %}
-      {% else %}
-        {% assign minutes = content | number_of_words | divided_by: 180 %}
-        {% if minutes == 0 %}{% assign minutes = 1 %}{% endif %}
-      {% endif %}
-      {{ minutes }} minute{% if minutes != 1 %}s{% endif %} read
-    </p>
+    <div class="column">
+      <h1>{{ page.title }}</h1>
+      <p>
+        {{ page.date | date: "%d %B %Y" }}
+        {% if page.categories.size > 0 %} / {{ page.categories | array_to_sentence_string }}{% endif %}
+        <br />
+        {% if page.minutes %}
+          {% assign minutes = page.minutes %}
+        {% else %}
+          {% assign minutes = content | number_of_words | divided_by: 180 %}
+          {% if minutes == 0 %}{% assign minutes = 1 %}{% endif %}
+        {% endif %}
+        {{ minutes }} minute{% if minutes != 1 %}s{% endif %} read
+      </p>
+    </div>
   </div>
   <div class="row post-content">
-    {{ content }}
+    <div class="column">
+      {{ content }}
+    </div>
   </div>
   <!-- post footer -->
   <div class="row post-footer">
-    <div class="twelve columns align-center">
+    <div class="column align-center">
       <a href="{{ '/' | prepend: site.baseurl | prepend: site.url }} ">&laquo; Back to index</a>
     </div>
   </div>

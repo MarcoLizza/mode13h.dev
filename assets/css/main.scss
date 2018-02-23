@@ -19,12 +19,10 @@ h1, h2, h3, h4, h5, h6 {
   color: $headings-color;
   text-shadow: $shadow-color 0 0 16px;
 }
-
 h1 {
   text-transform: capitalize;
   font-variant: small-caps;
 }
-
 h2, h3, h4, h5, h6 {
   text-transform: lowercase;
   font-variant: small-caps;
@@ -67,6 +65,18 @@ a {
 
 hr {
   border-top: 2px dashed $separator-color
+}
+
+pre {
+  border: none;
+}
+pre > code {
+  border-radius: 0.5rem; // 1rem is nice, but exaggerated. :)
+}
+code {
+  background: lighten($background-color, 5.0);
+  border: 1px solid lighten($separator-color, 5.0);
+  border-radius: 0.5rem;
 }
 
 /*----------------------------------------------------------------------------*/
@@ -112,8 +122,6 @@ header.main-header {
     margin-bottom: 0.5em;
     margin-left: auto;
     margin-right: auto;
-    //width: 20%;
-    //height: 20%;
     width: 100%;
     max-width: 256px;
     height: auto;
@@ -142,8 +150,6 @@ footer.main-footer {
     margin-bottom: 0.25em;
     margin-left: auto;
     margin-right: auto;
-//    width: 10%;
-//    height: 10%;
     width: 100%;
     max-width: 128px;
     height: auto;
@@ -288,7 +294,7 @@ ul.menu {
     text-align: center;
   }
   .post-entry {
-    margin-bottom: 2rem;
+//    margin-bottom: 2rem;
     h1, h2, h3, h4, h5, h6,
     p {
       padding: 0;
@@ -296,6 +302,9 @@ ul.menu {
     }
     p {
       color: $meta-color;
+    }
+    hr {
+      border: none;
     }
   }
   .post-archive {

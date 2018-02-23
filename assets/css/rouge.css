@@ -1,6 +1,3 @@
-/* Override "skeleton.css" colors and use theme background. */
-code { background: #2f2f2f; border-color:#4d533c }
-
 /* https://github.com/mozmorris/tomorrow-pygments/blob/master/css/tomorrow_night_blue.css */
 .highlight .hll { background-color: #4d533c }
 .highlight  { background: #002451; color: #ffffff }
