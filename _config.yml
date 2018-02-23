@@ -25,7 +25,7 @@ social:
 
 # Google Analytics key, leave blank to ignore
 google:
-  analytics_key: UA-114676206-1
+  analytics_id: UA-114676206-1
 
 # Build settings
 markdown: kramdown
