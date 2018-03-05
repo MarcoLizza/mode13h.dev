@@ -68,13 +68,14 @@ hr {
 }
 
 pre {
+  background-color: transparent;
   border: none;
 }
 pre > code {
   border-radius: 0.5rem; // 1rem is nice, but exaggerated. :)
 }
 code {
-  background: lighten($background-color, 5.0);
+  background-color: lighten($background-color, 5.0);
   border: 1px solid lighten($separator-color, 5.0);
   border-radius: 0.5rem;
 }
