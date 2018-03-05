@@ -6,7 +6,7 @@
 
 /* https://github.com/mozmorris/tomorrow-pygments/blob/master/css/tomorrow_night_blue.css */
 .highlight .hll { background-color: $secondary-color }
-.highlight  { background: $secondary-background-color; color: $border-color }
+.highlight  { background: transparent; color: $border-color }
 .highlight .c { color: #7285b7 } /* Comment */
 .highlight .err { color: #ff9da4 } /* Error */
 .highlight .k { color: #ebbbff } /* Keyword */
