@@ -88,6 +88,7 @@ header.main-header {
   margin: 2rem 0; // should use margin for spacing!
   h1, h2, h3, h4, h5, h6,
   p {
+    color: $secondary-primary-color;
     text-align: center;
     color: inherit;
     margin-bottom: 0;
@@ -141,6 +142,7 @@ footer.main-footer {
   margin: 2rem 0;
   h1, h2, h3, h4, h5, h6,
   p {
+    color: $secondary-primary-color;
     text-align: center;
     padding: 0;
     margin: 0;

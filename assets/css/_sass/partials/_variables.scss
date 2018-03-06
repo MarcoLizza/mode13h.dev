@@ -8,6 +8,7 @@ $White: #ffffff;
 $background-color: $Black;
 $secondary-background-color: $Dark;
 $primary-color: $White;
+$secondary-primary-color: $Light;
 $secondary-color: $Mid;
 $headings-color: $Light;
 $separator-color: $Dark;
@@ -15,11 +16,11 @@ $box-color: rgba($Mid, 0.7);
 $border-color: $White;
 $shadow-color: $White;
 
-$text-color: $primary-color;
-$meta-color: $secondary-color;
+$text-color: $White;
+$meta-color: $Mid;
 
 $link-normal: $Light;
 $link-hover: $Light;
 
-$social-link-normal: $primary-color; 
-$social-link-hover: $link-hover;
+$social-link-normal: $White;
+$social-link-hover: $Dark;
