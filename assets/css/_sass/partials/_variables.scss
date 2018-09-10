@@ -1,23 +1,24 @@
-$Black: #09111C;
-$Dark: #1D6246;
-$Mid: #8ABF71;
-$Light: #DFF8D0;
-$White: #ffffff;
+$Black: #272744;
+$Dark: #494d7e;
+$MidDark: #8b6d9c;
+$MidLight: #c69fa5;
+$Light: #f2d3ab;
+$White: #fbf5ef;
 
 // General colors
 $background-color: $Black;
 $secondary-background-color: $Dark;
 $primary-color: $White;
 $secondary-primary-color: $Light;
-$secondary-color: $Mid;
+$secondary-color: $MidLight;
 $headings-color: $Light;
 $separator-color: $Dark;
-$box-color: rgba($Mid, 0.7);
+$box-color: rgba($MidLight, 0.7);
 $border-color: $White;
 $shadow-color: $White;
 
 $text-color: $White;
-$meta-color: $Mid;
+$meta-color: $MidDark;
 
 $link-normal: $Light;
 $link-hover: $Light;
