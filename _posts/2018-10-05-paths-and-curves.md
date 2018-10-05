@@ -71,7 +71,7 @@ end
 
 The visual representation of the *De Casteljau* algorithm is what many children learn as *string art*.
 
-![Quadratic Bézier in string art](/assets/images/quadratic_beziers_in_string_art.svg)
+![Quadratic Bézier in string art](/assets/images/quadratic_beziers_in_string_art.png)
 
 ## Refining
 
