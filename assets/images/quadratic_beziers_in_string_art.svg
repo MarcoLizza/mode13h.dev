@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="100%" height="100%" viewBox="-6 -106 112 224">
+ <title>Quadratic B&#232;zier curves in string art</title>
+ <desc>Illustration of quadratic B&#232;zier curves in string art by CMG Lee. In each case, end points marked with black circles and the control point marked with an X define the quadratic B&#232;zier curve shown as a dotted line.</desc>
+ <defs>
+  <!--
+  <path id="control" d="M 1.5 -2 A 2.5 2.5 0 1 0 1.5 2" stroke="#000000" fill="none"/>
+  -->
+  <path id="control" d="M -3 -3 L 3 3 M -3 3 L 3 -3" stroke="#000000" fill="none"/>
+  <circle id="end" cx="0" cy="0" r="2.5" stroke="#000000" fill="#000000"/>
+  <circle id="nail" cx="0" cy="0" r="2.5"/>
+ </defs>
+ <g stroke-width="2" stroke-linejoin="round" stroke-linecap="round" fill="none">
+  <g>
+   <path d="M 0 -100 V 0 H 100" stroke="#000000" stroke-width="1"/>
+   <g stroke-opacity="0.5" fill-opacity="0.5">
+    <path d="M 0 -90 L 10 0" stroke="#996600"/>
+    <g fill="#996600">
+     <use xlink:href="#nail" transform="translate(0,-90)"/>
+     <use xlink:href="#nail" transform="translate(10,0)"/>
+    </g>
+    <path d="M 0 -80 L 20 0" stroke="#ff3333"/>
+    <g fill="#ff3333">
+     <use xlink:href="#nail" transform="translate(0,-80)"/>
+     <use xlink:href="#nail" transform="translate(20,0)"/>
+    </g>
+    <path d="M 0 -70 L 30 0" stroke="#ff6600"/>
+    <g fill="#ff6600">
+     <use xlink:href="#nail" transform="translate(0,-70)"/>
+     <use xlink:href="#nail" transform="translate(30,0)"/>
+    </g>
+    <path d="M 0 -60 L 40 0" stroke="#ffcc00"/>
+    <g fill="#ffcc00">
+     <use xlink:href="#nail" transform="translate(0,-60)"/>
+     <use xlink:href="#nail" transform="translate(40,0)"/>
+    </g>
+    <path d="M 0 -50 L 50 0" stroke="#00cc00"/>
+    <g fill="#00cc00">
+     <use xlink:href="#nail" transform="translate(0,-50)"/>
+     <use xlink:href="#nail" transform="translate(50,0)"/>
+    </g>
+    <path d="M 0 -40 L 60 0" stroke="#0099ff"/>
+    <g fill="#0099ff">
+     <use xlink:href="#nail" transform="translate(0,-40)"/>
+     <use xlink:href="#nail" transform="translate(60,0)"/>
+    </g>
+    <path d="M 0 -30 L 70 0" stroke="#6666ff"/>
+    <g fill="#6666ff">
+     <use xlink:href="#nail" transform="translate(0,-30)"/>
+     <use xlink:href="#nail" transform="translate(70,0)"/>
+    </g>
+    <path d="M 0 -20 L 80 0" stroke="#cc66ff"/>
+    <g fill="#cc66ff">
+     <use xlink:href="#nail" transform="translate(0,-20)"/>
+     <use xlink:href="#nail" transform="translate(80,0)"/>
+    </g>
+    <path d="M 0 -10 L 90 0" stroke="#999999"/>
+    <g fill="#999999">
+     <use xlink:href="#nail" transform="translate(0,-10)"/>
+     <use xlink:href="#nail" transform="translate(90,0)"/>
+    </g>
+   </g>
+   <path d="M 0 -100 Q 0 0 100 0" stroke="#000000" stroke-dasharray="0,5" stroke-width="3"/>
+   <use xlink:href="#control"/>
+   <use xlink:href="#end" transform="translate(0,-100)"/>
+   <use xlink:href="#end" transform="translate(100,0)"/>
+  </g>
+
+  <g transform="translate(0,112)">
+   <path d="M 100 -100 L 0 0 H 100" stroke="#000000" stroke-width="1"/>
+   <g stroke-opacity="0.5" fill-opacity="0.5">
+    <path d="M 90 -90 L 10 0" stroke="#996600"/>
+    <g fill="#996600">
+     <use xlink:href="#nail" transform="translate(90,-90)"/>
+     <use xlink:href="#nail" transform="translate(10,0)"/>
+    </g>
+    <path d="M 80 -80 L 20 0" stroke="#ff3333"/>
+    <g fill="#ff3333">
+     <use xlink:href="#nail" transform="translate(80,-80)"/>
+     <use xlink:href="#nail" transform="translate(20,0)"/>
+    </g>
+    <path d="M 70 -70 L 30 0" stroke="#ff6600"/>
+    <g fill="#ff6600">
+     <use xlink:href="#nail" transform="translate(70,-70)"/>
+     <use xlink:href="#nail" transform="translate(30,0)"/>
+    </g>
+    <path d="M 60 -60 L 40 0" stroke="#ffcc00"/>
+    <g fill="#ffcc00">
+     <use xlink:href="#nail" transform="translate(60,-60)"/>
+     <use xlink:href="#nail" transform="translate(40,0)"/>
+    </g>
+    <path d="M 50 -50 L 50 0" stroke="#00cc00"/>
+    <g fill="#00cc00">
+     <use xlink:href="#nail" transform="translate(50,-50)"/>
+     <use xlink:href="#nail" transform="translate(50,0)"/>
+    </g>
+    <path d="M 40 -40 L 60 0" stroke="#0099ff"/>
+    <g fill="#0099ff">
+     <use xlink:href="#nail" transform="translate(40,-40)"/>
+     <use xlink:href="#nail" transform="translate(60,0)"/>
+    </g>
+    <path d="M 30 -30 L 70 0" stroke="#6666ff"/>
+    <g fill="#6666ff">
+     <use xlink:href="#nail" transform="translate(30,-30)"/>
+     <use xlink:href="#nail" transform="translate(70,0)"/>
+    </g>
+    <path d="M 20 -20 L 80 0" stroke="#cc66ff"/>
+    <g fill="#cc66ff">
+     <use xlink:href="#nail" transform="translate(20,-20)"/>
+     <use xlink:href="#nail" transform="translate(80,0)"/>
+    </g>
+    <path d="M 10 -10 L 90 0" stroke="#999999"/>
+    <g fill="#999999">
+     <use xlink:href="#nail" transform="translate(10,-10)"/>
+     <use xlink:href="#nail" transform="translate(90,0)"/>
+    </g>
+   </g>
+   <path d="M 100 -100 Q 0 0 100 0" stroke="#000000" stroke-dasharray="0,5" stroke-width="3"/>
+   <use xlink:href="#control"/>
+   <use xlink:href="#end" transform="translate(100,-100)"/>
+   <use xlink:href="#end" transform="translate(100,0)"/>
+  </g>
+ </g>
+</svg>
