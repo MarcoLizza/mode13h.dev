@@ -4,9 +4,9 @@ author: marco.lizza
 layout: post
 permalink: "/paths-and-curves/"
 comments: true
-categories: 
+categories:
   - math
-tags: 
+tags:
   - math
   - lua
   - scripting
@@ -83,7 +83,7 @@ Both codes are presumably going to give bad performance: no precalculations, a l
 * some repeated math operations can be pre-computed and reused to save time, and
 * closures and table *unpacking* can be used for faster access to functions/variables.
 
-Here's the final resulting code (warning, spoiler ahead since this is going to be the implementation that we'll pick as "most performant").
+The final resulting code (warning, spoiler ahead since this is going to be the implementation that we'll pick as "most performant").
 
 ```lua
 -- The function *compiles* a Bézier curve evaluator, given the control points
@@ -114,6 +114,56 @@ local function compile_bezier(control_points)
         local d = t * tt
         local x = a * p0x + b * p1x + c * p2x + d * p3x
         local y = a * p0y + b * p1y + c * p2y + d * p3y
+        return x, y
+      end
+  elseif n == 3 then
+    local p0, p1, p2 = unpack(control_points)
+    local p0x, p0y = unpack(p0)
+    local p1x, p1y = unpack(p1)
+    local p2x, p2y = unpack(p2)
+    return function(t)
+        local u = 1 - t
+        local a = u * u
+        local b = 2 * t * u
+        local c = t * t
+        local x = a * p0x + b * p1x + c * p2x
+        local y = a * p0y + b * p1y + c * p2y
+        return x, y
+      end
+  elseif n == 2 then
+    local p0, p1 = unpack(control_points)
+    local p0x, p0y = unpack(p0)
+    local p1x, p1y = unpack(p1)
+    return function(t)
+        local u = 1 - t
+        local x = u * p0x + t * p1x
+        local y = u * p0y + t * p1y
+        return x, y
+      end
+  else
+    error('Bézier curves supported up to 4th order.')
+  end
+end
+
+local function compile_bezier_opt(control_points)
+  local n = #control_points
+  if n == 4 then
+    local p0, p1, p2, p3 = unpack(control_points)
+    local p0x, p0y = unpack(p0)
+    local p1x, p1y = unpack(p1)
+    local p2x, p2y = unpack(p2)
+    local p3x, p3y = unpack(p3)
+    return function(t)
+        local tt = t * t
+        local ttt = tt * t
+        local cx = 3 * (p1x - p0x)
+        local bx = 3 * (p2x - p1x) - cx
+        local ax = p3x - p0x - cx - bx
+        local cy = 3 * (p1y - p0y)
+        local by = 3 * (p2y - p1y) - cy
+        local ay = p3y - p0y - cy - by
+        local x = ax * ttt + bx * tt + cx * t + p0x
+        local x = ay * ttt + by * tt + cy * t + p0y
         return x, y
       end
   elseif n == 3 then
@@ -191,9 +241,7 @@ end
 
 ## Performances
 
-So many variants to choose from... which one we should pick? We can't answer properly to this question without some profiling. I proceeded in coding all the Bézier evaluators along with a simple profiling example. You can check the profiling code [here](https://gist).
-
- Here's a table resuming the result we got.
+So many variants to choose from... which one we should pick? We can't answer properly to this question without some profiling. I proceeded in coding all the Bézier evaluators along with a simple profiling example. You can check the profiling code [here](https://gist.github.com/MarcoLizza/95ac9b017f76dcc516d387c3f5157889).
 
 | Order | Variant               |    Cost |
 |:-----:|:----------------------|--------:|
@@ -232,6 +280,33 @@ By increasing the order of the curve we expect the performance to reduce. In fac
 |   4   | 188,28% |
 
 In terms of **precision** we checked the result being equal up to the 6th decimal point (10^-6) when compared with the framework (slower) implementation. As a side-note, the *Horner's method* algorithms a pretty imprecise and are impractical for common usages.
+
+## Reworking the Equations
+
+Considering that the linear interpolation between `a` and `b` can either be written as `(t - 1) * b + t * a` or `a + (b - a) * t` we can be temped to rework the evaluator as follows (for example, for a 4th order curve)
+
+```lua
+function bezier_4th(control_points, t)
+  local p0, p1, p2, p3 = unpack(control_points)
+  local p0x, p0y = unpack(p0)
+  local p1x, p1y = unpack(p1)
+  local p2x, p2y = unpack(p2)
+  local p3x, p3y = unpack(p3)
+  local tt = t * t
+  local ttt = tt * t
+  local cx = 3 * (p1x - p0x)
+  local bx = 3 * (p2x - p1x) - cx
+  local ax = p3x - p0x - cx - bx
+  local cy = 3 * (p1y - p0y)
+  local by = 3 * (p2y - p1y) - cy
+  local ay = p3y - p0y - cy - by
+  local x = ax * ttt + bx * tt + cx * t + p0x
+  local x = ay * ttt + by * tt + cy * t + p0y
+  return x, y
+end
+```
+
+However, while this is perfectly legit on the paper, numerically on a computer the results may diverge. Of course this new, reworked, algorithm uses less **multiplications**, but the number of **additions** and **subtractions** increases. On modern computers the cost of arithmetic operations is pretty much constant across operations. This wasn't the case on older CPUs during the '80s and '90s, where saving a **mul** or a **div** could make the difference especially on non FPU equipped computers. Most notably, this algorithm doesn't ensure proper results for `t = 1`. That being said, it's definitely not worth the effort.
 
 ## Applications
 
