@@ -3,8 +3,8 @@ title: "mode13h"
 logo_url: "/assets/images/logo.png"
 email: marco.lizza@gmail.com
 description: ~ night-time gamedev & geek ~
-#url: "https://mode13h.io" # the base hostname & protocol for your site
-url: "http://localhost:4000" # the base hostname & protocol for your site
+url: "https://mode13h.io" # the base hostname & protocol for your site
+#url: "http://localhost:4000" # the base hostname & protocol for your site
 baseurl: "" # the subpath of your site, e.g. /blog/
 
 author: # Author details
