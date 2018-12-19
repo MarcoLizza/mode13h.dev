@@ -1,16 +1,16 @@
 # Site settings
-title: "echidna"
+title: "mode13h"
 logo_url: "/assets/images/logo.png"
 email: marco.lizza@gmail.com
 description: ~ night-time gamedev & geek ~
-url: "https://echidna.io" # the base hostname & protocol for your site
-#url: "http://localhost:4000" # the base hostname & protocol for your site
+#url: "https://mode13h.io" # the base hostname & protocol for your site
+url: "http://localhost:4000" # the base hostname & protocol for your site
 baseurl: "" # the subpath of your site, e.g. /blog/
 
 author: # Author details
   name: Marco Lizza
   email: marco.lizza@gmail.com
-  url: https://echidna.io
+  url: https://mode13h.io
   copyright: "&copy; Copyright 2014-2018 by Marco Lizza"
 
 # Profile links, leave blank to ignore
@@ -21,11 +21,11 @@ social:
   itchio: MarcoLizza 
   gplus: +MarcoLizza
   linkedin: marco-lizza-46569a34  
-  disqus: echidna-io
+  disqus: mode13h-io
 
 # Google Analytics key, leave blank to ignore
 google:
-  analytics_id: UA-114676206-1
+  analytics_id: UA-131188350-1
 
 # Build settings
 markdown: kramdown
@@ -52,7 +52,7 @@ sass:
   sass_dir: assets/css/_sass
   style: :compressed
 
-plugins:
+plugins_dir:
   - jekyll-tidy
 
 jekyll_tidy:
