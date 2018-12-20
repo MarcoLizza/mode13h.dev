@@ -168,7 +168,10 @@ footer.main-footer {
   ul.social-media {
     width: 100%;
     text-align: center;
-    padding: 0;
+    padding-top: 0.5em;
+    padding-bottom: 0.5em;
+    padding-left: auto;
+    padding-right: auto;
     margin-bottom: 0;
     li {
       padding: 0;
