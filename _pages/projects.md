@@ -8,8 +8,8 @@ hide_meta: true
 ---
 # #1GAM
 
- * January 2016 (**HOBBY**) - [Boredom](http://marcolizza.itch.io/boredom)
- * February 2016 (**HOME**) - [FuGuE](http://marcolizza.itch.io/fugue)
- * March 2016 (**ARENA**) - [StarField](http://marcolizza.itch.io/starfield)
- * April 2016 (**AGE**) - [The Trip](http://marcolizza.itch.io/thetrip)
- * June 2016 (**COUCH**) *PROTOTYPE* - [Darn!](http://github.com/MarcoLizza/darn)
+ * January 2016 (**HOBBY**) - [Boredom](//mode13h.itch.io/boredom)
+ * February 2016 (**HOME**) - [FuGuE](//mode13h.itch.io/fugue)
+ * March 2016 (**ARENA**) - [StarField](//mode13h.itch.io/starfield)
+ * April 2016 (**AGE**) - [The Trip](//mode13h.itch.io/thetrip)
+ * June 2016 (**COUCH**) *PROTOTYPE* - [Darn!](//mode13h.com/MarcoLizza/darn)
