@@ -3,7 +3,6 @@ title: SID Memories
 author: marco.lizza
 layout: post
 permalink: /sid-memories/
-thumbnail: music
 categories:
   - recess
 tags:

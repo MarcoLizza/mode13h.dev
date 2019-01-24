@@ -3,7 +3,6 @@ title: A modern one, please
 author: marco.lizza
 layout: post
 permalink: /a-modern-one-please/
-thumbnail: cogs
 comments: true
 categories:
   - engine
@@ -42,7 +41,7 @@ Perhaps the integration API is something I still would prefer to be more C++ ori
 
 *( in my wildest dreams I go and use [TinyScheme][8], however )*
 
-To sum things up, for new let's go for Squirrel!
+To sum things up, for now let's go for Squirrel!
 
 ### What's Left
 
@@ -52,11 +51,11 @@ Of course, there are several other aspects that need to be clarified and a decis
  * **cross-platform**: will it be a Windows-only engine? Or I plan to port it to other platforms, too?
  * **architecture**: old-fashioned OOP hierarchies or component based design?
 
- [1]: http://blog.brainasylum.com/happyness-is
- [2]: http://luace.codeplex.com
- [3]: http://www.squirrel-lang.org
- [4]: http://studio.zerobrane.com
- [5]: http://chaiscript.com
- [6]: http://codeplea.com/game-scripting-languages
- [7]: http://pastie.org/1721408
- [8]: http://tinyscheme.sourceforge.net
+ [1]: //mode13h.io/happyness-is
+ [2]: //luace.codeplex.com
+ [3]: //www.squirrel-lang.org
+ [4]: //studio.zerobrane.com
+ [5]: //chaiscript.com
+ [6]: //codeplea.com/game-scripting-languages
+ [7]: //pastie.org/1721408
+ [8]: //tinyscheme.sourceforge.net

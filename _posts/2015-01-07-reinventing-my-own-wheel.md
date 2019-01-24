@@ -9,11 +9,11 @@ tags:
   - development
   - engine
 ---
-I totally agree with Ron Gilbert in his <a href="http://blog.thimbleweedpark.com/engine" target="_blank">recent Thimbleweed blog post</a>.
+I totally agree with Ron Gilbert in his [recent Thimbleweed blog post](http://blog.thimbleweedpark.com/engine).
 
 Upon starting [my latest project][1], I was pondering whether I should go and use an already existing engine or write a new one from scratch.
 
-Several good scripted game engines are available on the net, such as <a title="LÖVE" href="http://love2d.org" target="_blank">LÖVE</a> (which is also open-source) and <a title="Unity3D" href="http://unity3d.com" target="_blank">Unity3D</a>. But...
+Several good scripted game engines are available on the net, such as [LÖVE](http://love2d.org) (which is also open-source) and [Unity3D](http://unity3d.com). But...
 
 ... while peeking and messing others' code is a pivotal and funny way to learn new methods/ways/point-of-views, I always end in tailoring my own suit.
 

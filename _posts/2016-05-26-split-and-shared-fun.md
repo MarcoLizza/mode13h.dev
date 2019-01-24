@@ -3,10 +3,9 @@ title: 'Split & Shared Fun'
 author: marco.lizza
 layout: post
 permalink: "/split-and-shared-fun/"
-thumbnail: bulb
 comments: true
 categories: 
-  - thoughs
+  - thoughts
 tags: 
   - gaming
   - indiedev

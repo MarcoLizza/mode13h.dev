@@ -17,6 +17,6 @@ However, their Visual Studio has always being praised for being a top-notch tool
 
 Finally, along with the older *express* editions, a **free and full featured** [Community][1] edition is available!
 
-Horray! <img src="http://blog.brainasylum.com/wp-includes/images/smilies/simple-smile.png" alt=":)" class="wp-smiley" style="height: 1em; max-height: 1em;" />
+Horray! :)
 
  [1]: http://www.visualstudio.com/products/visual-studio-community-vs

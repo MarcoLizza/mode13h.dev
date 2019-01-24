@@ -3,7 +3,6 @@ title: Stateful Callbacks in Lua
 author: marco.lizza
 layout: post
 permalink: /stateful-callbacks-in-lua/
-thumbnail: flask
 categories:
   - embedding
 tags:

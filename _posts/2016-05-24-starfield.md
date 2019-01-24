@@ -3,7 +3,6 @@ title: 'StarField (Analysis)'
 author: marco.lizza
 layout: post
 permalink: "/starfield-analysis/"
-thumbnail: life-saver
 comments: true
 categories: 
   - analysis
