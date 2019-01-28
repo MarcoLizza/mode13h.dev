@@ -1,8 +1,8 @@
 ---
-title: 'Happyness is...'
+title: 'Happiness is...'
 author: marco.lizza
 layout: post
-permalink: /happyness-is/
+permalink: /happiness-is/
 categories:
   - development
   - engine
