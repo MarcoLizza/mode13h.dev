@@ -4,11 +4,9 @@
 @import "partials/mixins";
 @import "partials/variables";
 
-/* --------------------------------
-
- Primary style
-
--------------------------------- */
+/*----------------------------------------------------------------------------*/
+/*- Primary style ------------------------------------------------------------*/
+/*----------------------------------------------------------------------------*/
 
 html, body {
   font-family: 'Raleway', sans-serif;
@@ -44,7 +42,7 @@ a:hover {
   color: $link-hover;
 }
 a h1, a h2, a h3, a h4, a h5, a h6 {
- text-shadow: $shadow-color 0 0 16px;
+  text-shadow: $shadow-color 0 0 16px;
 }
 
 html * {
@@ -80,9 +78,11 @@ pre {
   border: none;
 }
 pre > code {
+  font-family: 'Source Code Pro', monospace;
   border-radius: 0.5rem; // 1rem is nice, but exaggerated. :)
 }
 code {
+  font-family: 'Source Code Pro', monospace;
   background-color: lighten($background-color, 5.0);
   border: 1px solid lighten($separator-color, 5.0);
   border-radius: 0.5rem;
@@ -299,7 +299,7 @@ ul.menu {
 }
 
 /*----------------------------------------------------------------------------*/
-/*- Front Page  --------------------------------------------------------------*/
+/*- Front Page ---------------------------------------------------------------*/
 /*----------------------------------------------------------------------------*/
 
 .front-page {
