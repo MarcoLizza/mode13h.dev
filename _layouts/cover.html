@@ -10,10 +10,10 @@ layout: default
       <h3>
         <a href="{{ post.url | prepend: site.baseurl | prepend: site.url }}">{{ post.title }}</a>
       </h3>
-      <h5>
+      <p>
         {{ post.date | date: "%d %B %Y" }}
         {% if post.categories.size > 0 %} / {{ post.categories | array_to_sentence_string }}{% endif %}
-      </h5>
+      </p>
       <hr />
     </div>
   </div>
