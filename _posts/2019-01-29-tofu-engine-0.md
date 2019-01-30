@@ -11,7 +11,7 @@ tags:
   - wren
   - raylib
 ---
-Some years ago ([it seems like](/happiness-is/) almost five years ago... man, how fast time flies!) I was working on a custom game engine. Needless to say, the project didn't see the light of day and was left marooned someplace in my hard-drives. To be fair, while I was thrilled of creating my own wheel (I'm always been the kind of developer that prefer to code his own version of an algorithm/library/piece-of-tech to be in control... pretty much a waste of time, one could say), I hadn't a clear aim and wasn't enthusiastic to spend months of coding just to have a over-generic engine inferior to what the (abundant) market offers.
+Some years ago ([it seems like](/happiness-is/) almost five years ago... man, how fast time flies!) I was working on a custom game engine. Needless to say, the project didn't see the light of day and was left marooned someplace in my hard-drives. To be fair, while I was thrilled of creating my own wheel (I'm the kind of developer that loves to code for the sake of coding and prefer to write an algorithm/library/piece-of-tech in his own personal way... pretty much a waste of time, one could say), I hadn't a clear aim and wasn't enthusiastic to spend months of coding just to have a over-generic engine inferior to what the (abundant) market offers.
 
 And the (inevitable) hiatus came.
 
