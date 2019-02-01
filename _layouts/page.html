@@ -3,6 +3,14 @@ layout: default
 ---
 <!-- page -->
 <div class="container page">
+  <!-- page banner -->
+  {% if page.banner %}
+  <div class="row page-banner">
+    <div class="column">
+      <img src="{{ page.banner }}" />
+    </div>
+  </div>
+  {% endif %}
   <!-- page content -->
   {% if page.hide_meta == false %}
   <div class="row page-meta">

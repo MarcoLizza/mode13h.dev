@@ -267,6 +267,14 @@ footer.main-footer {
   }
 }
 
+.page-banner {
+  img {
+    border: none;
+    border-radius: 0px;
+    box-shadow: none;
+  }
+}
+
 .post-footer,
 .page-footer {
   padding: 2rem 0;
