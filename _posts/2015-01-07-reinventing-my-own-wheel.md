@@ -25,4 +25,4 @@ I'll just end in spending weeks tweaking the engine/framework at the point that 
 
 Plus, starting an engine from scratch is always a good opportunity to try new solutions and technologies!
 
- [1]: http://blog.brainasylum.com/a-modern-one-please/ "A modern one, please"
+ [1]: /a-modern-one-please/ "A modern one, please"

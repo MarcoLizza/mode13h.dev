@@ -16,7 +16,7 @@ While a basic paint editor suffice (such as Microsoft Paint) and some valid full
 
 Or simply go and use [Pyxel Edit][3].
 
-Just discovered and already loving it. <img src="http://blog.brainasylum.com/wp-includes/images/smilies/simple-smile.png" alt=":)" class="wp-smiley" style="height: 1em; max-height: 1em;" />
+Just discovered and already loving it. :)
 
  [1]: http://www.gimp.org
  [2]: https://www.inkscape.org
