@@ -19,6 +19,7 @@ layout: default
       {% if page.categories.size > 0 %}
       <p>{{ page.categories | array_to_sentence_string }}</p>
       {% endif %}
+      {% include disqus-comments-embed.html %}
     </div>
   </div>
   {% endif %}

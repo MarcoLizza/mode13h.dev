@@ -10,6 +10,7 @@ layout: default
       <p>
         {{ page.date | date: "%d %B %Y" }}
         {% if page.categories.size > 0 %} / {{ page.categories | array_to_sentence_string }}{% endif %}
+        {% include disqus-comments-embed.html %}
         <br />
         {% if page.minutes %}
           {% assign minutes = page.minutes %}
