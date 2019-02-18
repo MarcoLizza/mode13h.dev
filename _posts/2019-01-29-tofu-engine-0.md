@@ -5,8 +5,8 @@ layout: post
 permalink: "/tofu-engine-0/"
 comments: true
 categories: 
+  - tofu-engine
   - devlog
-  - engine
 tags: 
   - wren
   - raylib
