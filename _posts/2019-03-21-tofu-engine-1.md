@@ -26,7 +26,7 @@ In the present post, I want to highlight some of the peculiar aspects I've faced
 
 **Wren**'s embedding API is really easy and seamless to use. I chose not to use and call *static* methods from the engine to the script. Rather, the game need include a `tofu.wren` script and an entry point, exposing a `Tofu` class as such.
 
-```Dart
+```dart
 class Tofu {
 
     construct new() {
