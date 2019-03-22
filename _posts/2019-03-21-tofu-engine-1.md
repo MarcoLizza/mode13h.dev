@@ -95,7 +95,13 @@ The befits of writing tiny applications during the development are evident:
 
 The first application I wrote is a **BunnyMark** re-implementation. While this is not a reliable benchmark for comparing the performances with other engines, it can be used to do some regression checks. Also, it is very cute. :)
 
-The second application is more in the league of the *lo-fi* feel and is the **Doom Fire PSX** effect (that *Fabien Sanglard* described recently in his [blog](http://fabiensanglard.net/doom_fire_psx/). It is a very simple effect but served well to spot some issue with the pixel-perfect rendering with OpenGL primitives. This is due to OpenGL's *rasterization rules* and a little [fix](http://glprogramming.com/red/appendixg.html#name1) is required in order for it to properly work. Moreover, filled and wireframe polygons behave differently with regard to pixel positioning and size. Anyway, the application was easy to implement but posed also an interesting question: should a primitive `Grid` type be implemented to better handle 2D arrays? If yes, should it implemented in native (C) or interpreted (Wren) language?
+![BunnyMark](/assets/videos/bunnymark.gif)
+
+The second application is more in the league of the *lo-fi* feel and is the **Doom Fire PSX** effect (that *Fabien Sanglard* described recently in his [blog](http://fabiensanglard.net/doom_fire_psx/).
+
+![Doom Fire PSX](/assets/videos/doom-fire-psx.gif)
+
+It is a very simple effect but served well to spot some issue with the pixel-perfect rendering with OpenGL primitives. This is due to OpenGL's *rasterization rules* and a little [fix](http://glprogramming.com/red/appendixg.html#name1) is required in order for it to properly work. Moreover, filled and wireframe polygons behave differently with regard to pixel positioning and size. Anyway, the application was easy to implement but posed also an interesting question: should a primitive `Grid` type be implemented to better handle 2D arrays? If yes, should it implemented in native (C) or interpreted (Wren) language?
 
 ## What's next?
 
