@@ -35,7 +35,7 @@ They both lack audio management, in a way, but that is something achievable with
 
 Wren is a **neat** scripting language. The language is nice, embedding API is a breeze to use, the interpreter is performant, the source-code is so compact and well-documented that easily enables customary changes...
 
-... but it's pretty much SCONOSCIUTO.
+... but it's very little known.
 
 The lack of proper development tools and library of scripts can be an issue in the long run.
 
