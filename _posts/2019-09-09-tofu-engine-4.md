@@ -1,16 +1,18 @@
 ---
-title: 'tofu-engine #3'
+title: 'tofu-engine #4'
 author: marco.lizza
 layout: post
-permalink: "/tofu-engine-3"
+permalink: "/tofu-engine-4"
 comments: true
 categories: 
   - tofu-engine
   - devlog
 tags: 
   - raylib
-  - glfw
   - sdl
+  - glfw
+  - wren
+  - lua
   - sprite stacking
 published: false
 ---
@@ -36,7 +38,11 @@ Among the features we currently find
 * scripting callback timer,
 * priority-controlled colored console logging.
 
-Next in the list animations, stencil-drawing, and gaming-controller support need to be implemented. In the meanwhile, I'll consider if it's worth switching from **Wren** to some other more common language (Lua or JavaScript). For the moment I don't need any script-level debugging but as the projects grow in size it will soon become a major requirement. Also, better IDE integration and support would be definitely a plus.
+Next in the list animations, stencil-drawing, and gaming-controller support need to be implemented.
+
+## Moving to Lua
+
+In the meanwhile, I'll consider if it's worth switching from **Wren** to some other more common language (Lua or JavaScript). For the moment I don't need any script-level debugging but as the projects grow in size it will soon become a major requirement. Also, better IDE integration and support would be definitely a plus.
 
 ## RICS or CISC?
 
