@@ -8,51 +8,37 @@ categories:
   - tofu-engine
   - devlog
 tags: 
-  - render
-  - blit
-published: false
+  - software-renderer
+  - blitter
 ---
-In the [previous](/tofu-engine-3) `#devlog` I mentioned that using a fragment-shader to implement palette shifting appeared as a potential performances bottleneck. In fact, sending a uniform array of 256 element to the fragment-shader is costly and, when called several times for each frame, makes the FPS drop rapidly. In addition to that, it occurred to me that pixel-perfect primitives are difficult to implement in OpenGL. Among the many, smaller circles (e.g. with a two pixel-wide radius) are almost impossible to achieve.
+In the [previous](/tofu-engine-3) `#devlog` I mentioned that using a fragment-shader to implement palette shifting appeared as a potential performance bottleneck. In fact, sending a uniform array of 256 elements to the fragment-shader is costly and, when called several times for each frame, makes the FPS drop rapidly. In addition to that, it occurred to me that pixel-perfect primitives are difficult to implement in OpenGL. Among the many, smaller circles (e.g. with a two pixel-wide radius) are almost impossible to achieve.
 
-That has been more than enough to convince me to jump and write an in-house (almost) completely software renderer.
+That has been more than enough to persuade me to code an in-house software renderer (which was something already tinkered about, lately).
 
-*Which was something already tinkered about, lately*
+Switching from OpenGL to a software *blitter* was rather straight-forward. The engine was already modularized enough and the *graphic layer* was self-contained and exhibited a generic API. Also, since I've been code-pulling pixels since the mid-'90s, I already knew the topic. Nevertheless, I tried and add some advanced features (such as independent x/y scaling, rotations, affine transformations) that in the past I just avoided since they were unneeded and/or too complex for the CPUs of the time. In addition to that, I coded some basic 2D primitives drawing routines, which proved a bit more challenging.
 
-Switching from using OpenGL to a software *blit* functions was pretty straight-forward. The engine was already modularized enough and the *graphic layer* was self-contained and exposed a generic API. Also, since I've been code-pulling pixels since the mid-'90s, I already knew the subject. However, I tried to apply some more advanced features (such as independent x/y scaling, rotations, affine transformations) (that in the past I just skipped due to ). Also, I wrote basic 2D primitives, which proved a bit more challenging.
+The [GLFW](https://www.glfw.org/)/[OpenGL](https://www.opengl.org/) layer is used only to present the final frame-buffer data to the user. This is achieved by converting *on-the-fly* the 8-bit offscreen buffer to an `ARGB` memory buffer and moving the latter to a pre-allocated (OpenGL) texture with a single `glTexSubImage2D` call. With a single triangle-strip, the texture is drawn onto the video frame-buffer, stretching if necessary. This also enabled the presence of an (optional) single *post-fx* fragment-shader (which is the only advanced feature I kept).
 
-During the whole process, I struggled to keep the code as consistent, clean, and optimized as possibile without sacrificing understandability. In the end I'm pleased with the result.
+During the whole process, I struggled to keep the code as consistent, clean, and optimized as possible without sacrificing understandability. In the end, I'm pleased with the result.
 
-For smaller canvases (e.g. 256x256) I gained almost a **x8** performance boost over the OpenGL version of the renderer (when switching palette and applying shifting). Big canvases, or when not using the advanced palette feature, the performance dropped a bit. However, this is not dramatic... and let's not forget that the engine is primarily aimed to *lo-fi* games.
+When palette switching and/or shifting is used, for mid-to-small canvases (e.g. `256x256` pixels) I gained almost an **x8** performance boost over the OpenGL version of the renderer. With bigger or when palette switches/shifts aren't used, the performance boost is less evident. However, this is not dramatic... let's not forget that the engine is primarily aimed to *lo-fi* games (I don't plan to write ~10K sprites regularly). With some kind of z-index or dirty-region technique we *could* possibly have better performances, but the additional complexity won't make it worth the effort.
 
-The current features after this iteration
+We can sum up the engine features added with this iteration as follows:
 
-* explicit screen clear operation;
-* blitting operations with independent x/y scaling, rotation (w/ customizable rotation *anchoring*), and x/y flipping;
-* SNES-inspired [Mode-7](https://en.wikipedia.org/wiki/Mode_7) affine transformation w/ scan-line tweakable parameters (table based, much like HDMA),
-* per-color palette shifting and transparency (applied on each draw operation);
-* rectangular clipping for blitting and primitives drawing;
-* drawing-state (clipping-region, palette, shifting, transparency) push/pop;
-* multi-level FPS capping.
+* explicit screen clear operation (this was implicit in each frame-buffer redraw);
+* support for *BOB* (**B**litter **OB**ject) drawing with independent x/y scaling, x/y flipping, rotation, and rotation *anchoring*;
+* SNES-inspired [Mode-7](https://en.wikipedia.org/wiki/Mode_7) affine transformation w/ scan-line dependent parameters (table-based, much like [HDMA](https://wiki.superfamicom.org/grog's-guide-to-dma-and-hdma-on-the-snes)),
+* per palette-index shifting and transparency (applied on each draw operation);
+* rectangular clipping for both *BOB*s and primitives drawing;
+* push/pop operations for the current drawing-state (clipping-region, palette, shifting, transparency);
+* multi-level auto-adaptive FPS capping.
 
-While I was on the topic, I drafted some features that I'm still not sure if they are worth to be included, that is
+While on the topic, I drafted some features that I'm still not sure if they are worth to be included, that is:
 
 * pattern-based fill for primitives;
-* raster operations;
-* global foreground (i.e. pen) color.
+* raster bitwise operations;
+* global foreground (i.e. pen) color, implicitly used when not specified.
 
-The GLFW/OpenGL layer is used only to present the final framebuffer data to the user (by converting the 8-bit offscreen buffer to ARGB and moving to a OpenGL texture with a `glTexSubImage2D` call and a final stretch-drawing the texture as triangle-strip). The only advanced feature I kept is the chance to provide a *post-fx* fragment-shader.
+This engine iteration has also been the chance to optimize Lua's integration. I've decided to favour, internally, 32 bit *floats* and *integers* and Lua has been compiled with such settings (I don't feel the need to use larger data-types, honestly). Also, I've perfected the build process by adding automatic `luacheck` and generation of the embedded scripts (based on `hexdump`... I'd like to pre-compile the Lua files to byte-code, too). Finally, I added a memory-leak checker (i.e. [stb_leakcheck.h](https://github.com/nothings/stb/blob/master/stb_leakcheck.h)) and `valgrind`. The latter proved extremely useful to track a nasty bug (but one needs to be careful and enable Mesa software rendering or the application will stop abruptly).
 
-This engine iteration has also been the change to optimize Lua's integration. I've decided to favour, internally, 32 bit *floats* and *integers* and Lua has been compiled with such settings. Also, I've perfected the build process by adding automatic `luacheck` and generation of the embedded scripts. Finally, I added both a basic memory-leak checker and `valgrind` (which proved extremely useful to track a nasty bug... but one need to be careful and enabled Mesa software rendering or the application will stop abruptly).
-
-
-
-TODO: pre-configured perspective/barell/other mode7 effects.
-
-Pulling pixels is something I always liked to to. Since the mid-'90s, when  I've been writing several libraries/APIs (mostly for personal use)
-
-In 1995 (circa) I put my hands on my first PC. I've been using Commodore home-computer (C64 first, then the Amiga) since my early childhood, and my programming experience was based on them.
-
-Of course my first interest was how to pull pixels on the screen and VGA's Mode-13h was something really easy to understand and use. After years of using some very elaborated and custom chips (I'm talking about you, VIC-II and Agnus) with very specific and peculiar features, facing something so simple and w/o any interesting feature was... strange.
-
-Not only I had to re-learn pretty much everything about a platform (the PC) which seemed to devoid of features, but I also had to learn how to implement every graphics feat I needed.
-
+For the next iteration, I plan to move the first steps into the audio subsystem (first of all by finding a suitable portable audio library to leverage). Also, I'd like to write some separate blog entries to detail the algorithms used in coding the software-rendered (this ancient art is rapidly disappearing).
