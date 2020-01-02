@@ -51,7 +51,7 @@ class Tofu {
 
 I'm still debated whether the `input()` method makes real sense, whether the *input-processing phase* should be performed inside each `update()` call, or if we should call the former each time the latter is called. There's way too much room for choices!
 
-Also, I'm evaluating a possible significant change in the above-mentioned API. Rather than implicitly calling pre-defined and hardcoded methods, we could use explicit *event registering* for the callback methods. It would be more versatile but would require a bit of boilerplate code that is pretty much unnecessary.
+Also, I'm evaluating a possible significant change in the above-mentioned API. Rather than implicitly calling pre-defined and hard-coded methods, we could use explicit *event registering* for the callback methods. It would be more versatile but would require a bit of boilerplate code that is pretty much unnecessary.
 
 Back to the scripting API.
 
@@ -82,7 +82,7 @@ This fits nicely in `#tofuengine` since we work on an offscreen rending texture 
 
 One thing to notice is that OpenGL poses a limit to the maximum amount of elements in a uniform array (with the constant `GL_MAX_FRAGMENT_UNIFORM_VECTORS`). The value depends on the platform in use and it seems that a lower-bound is represented by Raspberry-PI with `136` elements. While it would have been nice to set `256` as a limit (like VGA's *Mode 13h* :D), realistically a palette of 64 colors is more than enough for the scope of the engine. As an example, the NES palette has been included as a pre-loaded reference palette.
 
-> Another approach for palette support can be achieved by using a **texture buffer object**, that is a unidimensional texture carrying shared data from the application to the shader. However, at the moment *raylib* doesn's support it properly... perhaps I'll get back to this issue in the future and check if it might be something of interest for optimization.
+> Another approach for palette support can be achieved by using a **texture buffer object**, that is a one-dimensional texture carrying shared data from the application to the shader. However, at the moment *raylib* doesn't support it properly... perhaps I'll get back to this issue in the future and check if it might be something of interest for optimization.
 
 In order for the palettized rendering to work, textures/images need to be "patched" runtime. Each pixel is replaced with an "indexing color" by searching the nearest-matching color in the current active palette. At the moment this requires (due to the library features) to allocate an additional temporary support buffer. It would be nice to have it work through a callback during the loading itself so that an additional (re)scan and support buffer won't be needed.
 
@@ -101,12 +101,12 @@ The second application is more in the league of the *lo-fi* feel and is the **Do
 
 ![Doom Fire PSX](/assets/videos/doom-fire-psx.gif)
 
-It is a very simple effect but served well to spot some issue with the pixel-perfect rendering with OpenGL primitives. This is due to OpenGL's *rasterization rules* and a little [fix](http://glprogramming.com/red/appendixg.html#name1) is required in order for it to properly work. Moreover, filled and wireframe polygons behave differently with regard to pixel positioning and size. Anyway, the application was easy to implement but posed also an interesting question: should a primitive `Grid` type be implemented to better handle 2D arrays? If yes, should it implemented in native (C) or interpreted (Wren) language?
+It is a very simple effect but served well to spot some issue with the pixel-perfect rendering with OpenGL primitives. This is due to OpenGL's *rasterization rules* and a little [fix](http://glprogramming.com/red/appendixg.html#name1) is required in order for it to properly work. Moreover, filled and wire-frame polygons behave differently with regard to pixel positioning and size. Anyway, the application was easy to implement but posed also an interesting question: should a primitive `Grid` type be implemented to better handle 2D arrays? If yes, should it implemented in native (C) or interpreted (Wren) language?
 
 ## What's next?
 
 There's a lot to do. :)
 
-The next relevant thing to be implemented is **tiled mapping support**. It should support camera placement and scrolling, as well, and this is something I'd like to handle by using shaders (which is something that has a nice continuity the way scrolling was implemented in some 8- and 16-bit computers of the '80s/'90s, i.e. through very specific chipset registers tweaking).
+The next relevant thing to be implemented is **tiled mapping support**. It should support camera placement and scrolling, as well, and this is something I'd like to handle by using shaders (which is something that has a nice continuity the way scrolling was implemented in some 8- and 16-bit computers of the '80s/'90s, i.e. through very specific chip-set registers tweaking).
 
 I will also start to think about **collision detection**. Is this something that depends and changes on a per-game basis, or could be worth adding to the engine natively?
