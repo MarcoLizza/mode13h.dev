@@ -21,7 +21,7 @@ The [GLFW](https://www.glfw.org/)/[OpenGL](https://www.opengl.org/) layer is use
 
 During the whole process, I struggled to keep the code as consistent, clean, and optimized as possible without sacrificing understandability. In the end, I'm pleased with the result.
 
-When palette switching and/or shifting is used, for mid-to-small canvases (e.g. `256x256` pixels) I gained almost an **x8** performance boost over the OpenGL version of the renderer. With bigger or when palette switches/shifts aren't used, the performance boost is less evident. However, this is not dramatic... let's not forget that the engine is primarily aimed to *lo-fi* games (I don't plan to write ~10K sprites regularly). With some kind of z-index or dirty-region technique we *could* possibly have better performances, but the additional complexity won't make it worth the effort.
+When palette switching and/or shifting is used, for mid-to-small canvases (e.g. `256x256` pixels) I gained almost an **x8** performance boost over the OpenGL version of the renderer. With bigger or when palette switches/shifts aren't used, the performance boost is less evident. However, this is not dramatic... let's not forget that the engine is primarily aimed to *lo-fi* games (I don't plan to draw ~10K sprites regularly). With some kind of z-index or dirty-region technique we *could* possibly have better performances, but the additional complexity won't make it worth the effort.
 
 We can sum up the engine features added with this iteration as follows:
 
