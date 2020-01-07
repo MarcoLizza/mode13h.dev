@@ -19,7 +19,7 @@ In its first 12 months of life, the engine has seen a lot of changes. From the i
 
 In the current state, the engine is almost feature complete (given that we can always add new features) with a major exception: **audio support**. It has been sketched by picking a support library (namely [miniaudio](https://github.com/dr-soft/miniaudio)) but nothing more. This is going to be the next step to be done.
 
-Following a brief report on what has been achieved in the last months of work.
+Following a brief summary of the highlights of last months' of work.
 
 ## Input handling
 
@@ -27,7 +27,17 @@ Gamepad input almost complete. Sticks and triggers are deadzone-filtered. Left s
 
 ## Interpreter
 
-The Lua integration has been polished. The module initialization has been refined and the (module-level) C API *upvalues* have been cleared; it is no longer used a single container structure grouping all the sub-systems instances, but separare upvalues. Also, the `io` and `os` predefined libraries have been removed (as they are potentially dangerouse since the permit to go outside the engine's sandbox environment). The boot script has been reworked and extended (and a geeky "Guru Meditation" crash-screen has been added in the debug build), the argument checking has been optimized (types are no longer tested with a function), and script processing is more robust. I also tested Lua scripts pre-compilation, which I was courious about, and it isn't worth the effort since the final bytecode file is larger than the plain script (which potentially complicate things up).
+The integration with Lua's VM has been polished.
+
+The module initialization has been refined and the (module-level) C API *upvalues* have been cleared; we are no longer using a single container structure that groups all the sub-systems' instances, but separare upvalues.
+
+Also, the `io` and `os` predefined libraries have been removed (as they are potentially dangerouse since the permit to go outside the engine's sandbox environment).
+
+The boot script has been reworked and extended (and a geeky "Guru Meditation" crash-screen has been added in the debug build), the argument checking has been optimized (types are no longer tested with a function), and script processing is more robust.
+
+I also tested Lua scripts pre-compilation, which I was courious about, and it isn't worth the effort since the final bytecode file is larger than the plain script (which potentially complicate things up).
+
+Once more I'm really please that I chose not to use any Lua-to-C integration library. Lua's C API is really easy and powerful to use, once you grasp some of the key concepts (mostly the stack). After some time it just feels natural... and in some way I fell (pleasant) echoes of assembly programming when I'm dealing with it. :)
 
 ## Graphics pipeline
 
