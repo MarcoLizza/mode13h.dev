@@ -13,6 +13,13 @@ tags:
   - gamepads
 published: false
 ---
+End-of-year recap post. It's been (as usual) a while since the last one. Couriously enough, in the last year I wrote only posts related to `#tofuengine`. Well, that's not really strange since it has been the sole off-work project I've been following.
+
+In its first 12 months of life, the engine has seen a lot of changes. From the initial *quick-and-dirty* implementation to the current more polished one, switching from C++ (only in the earliest prototype) to C99, moving from an GPU-based approach to an custom software renderer... it's been a lot of fun! :)
+
+In the current state, the engine is almost feature complete (given that we can always add new features) with a major exception: **audio support**. It has been sketched by picking a support library (namely [miniaudio](https://github.com/dr-soft/miniaudio)) but nothing more. This is going to be the next step to be done.
+
+Following a brief report on what has been achieved in the last months of work.
 
 ## Input handling
 
@@ -28,11 +35,66 @@ Graphics reworked, non-monochrome font support, final drawing offset. Useful for
 
 ## Virtual file-system
 
-Implemented custom packed file-system access. Very simple, read-only, with encryption.
+I always loved *packed* file-system access. Since the mid '90s, when [Doom's WAD](https://en.wikipedia.org/wiki/Doom_WAD) format was documented, I wrote several WAD-like formats (even complete file-based file-systems with read and write access). Most games used a similar approach as a mean to protect from hacking and for ease of distribution. In fact, it's far more simple to pack all game data in a single file rather than hundreds of smaller files across a (sub)folder.
+
+Initially I though about using an existing archive format such as ZIP or TAR. The immediate benefit is the ease of creation and handling since a plethora of archive-managers already exist. Unfortunately, I wasn't able to find a small, simple, and clean library that supports them. There are some good instances but they don't fit my needs. I had a peek of [PhysFS](https://icculus.org/physfs/) which is an amazing library *but* way too big for my purposes (I don't need to support lot of different formats, but a single one in the best/easiest way possible).
+
+Yes, you can guess how it ended. I wrote a custom packed file-system access sub-system... and, as as usual, this turned into a really interesting and fun task. :)
+
+I sticked to the simplest format I could thing of, with the following requested features:
+
+* seamless integration with both folder- and file-based access,
+* random read-only access (file can't be runtime changed by the application),
+* low memory footprint,
+* fast I/O operations.
+
+At first I considered (and also implemented) to support compression. However, it turned to be both pretty much useless as most file entries (namely the bigger ones) are already stored in compressed native format (e.g. PNG and OGG). Adding compression would slow-down the I/O and require an additional memory buffer. Both two big no-no for me. Integrity check, also, isn't required as in the case a file is malformed/corrupted a error would eventually rise and detecting the corruption won't fix anything. The only benefit would be to prevent file tampering/hacking... but that's not something I want to protect from (you're welcome and hack my games if you like :)). Just for sake of fun I added a simple stream cipher, in order to enable a minor countermeasure for the ones that really bothers. The stream cipher doesn't require additional memory (encryption/decryption key excluded) and the processing overhead is small.
+
+Having not to support updates of the archive made the things really easy. A packed archive begins with a `Pak_Header_t` structure
+
+```c
+typedef struct _Pak_Header_t {
+    char signature[8];
+    uint8_t version;
+    uint8_t flags;
+    uint16_t __reserved;
+    uint32_t entries;
+} Pak_Header_t;
+```
+
+No file-format is complete without signature/magic-number and a version indicators... and the `signature` and `version` fields fullfil this purpose (with `signature` equal to `TOFUPAK!` and `version` equal to `0` for the moment). `flags` reports additional information about the archive (e.g. whether the archive is encrypted), and `entries` the amount of file stored in the archive. `__reserved` is a -- erm -- reserved field we added in order to *think-ahead* and save us from future headaches in the case we need to store more data in the header.
+
+The archive header is, then, followed by first entry's header.
+
+```c
+typedef struct _Pak_Entry_Header_t {
+    uint16_t __reserved;
+    uint16_t name;
+    uint32_t size;
+} Pak_Entry_Header_t;
+```
+
+Once again we have `__reserved` field (used both for alignment purposes and because we never know if in the future we'll need it). The entry header is followed byt `name` bytes indicating the entry name, and `size` bytes (the entry proper data).
+
+No directory is stored in the archive. During the initialization phase the archive is scanned and the resources directory is built in-memory. This is surely add ups to the engine memory footprint, but it ensure really fast entry look-up once we (q)sort and binary-searched the entries (reaching a more than respectable `O(nlogn)` complexity).
+
+> Please note that the filenames are case-**in**sensitive. Case-sensitiveness file-systems are *evil* to me. :)
+
+In order to create `TOFUPAK` archives a basic Lua script has been written. Nothing fancy, it just scan and pack a folder into a file (encrypting if necessary).
+
+When launched with no arguments, the engine search in the current folder (not recursively) for any `.pak` file and attaches them all as mount-points. It also attaches to the current folder as last (most recent) a mount point.
+
+> The maximum amount of entries per archive is huge (`2^32 - 1` entries) and a single archive can store all the required data for any game. However, since multiple mount-points/archives are supported by the engine resources can be split in different archives. This also has the side-effect that, if an entry with the same name is present in more than one archive, the lexicographically last one is used enabling this way for *resource override*.
 
 ## Windows support
 
-A major milestone has been **porting** through cross-compilation the engine to **Windows**. This was mostly a matter of modifying adding suitable library binaries for GFLW3 (which are available for Windows in MinGW format), and changing the `Makefile` file in order to use the correct compiler/linker/flags. No relevant changes were needed to the engine itself. Finally being able to launch it on Windows is awesome and boosts the percentage of supported platform by a huge amount! :) While I was there, I added also an experimental support for **Raspberry-PI**. The sole relevant platform missing is MacOS... but, unfortunately, I haven't a sufficient experience with it. Probably I would use a helping hand from a fellow coder.
+A major milestone has been **porting** through cross-compilation the engine to **Windows**. This was mostly a matter of modifying adding suitable library binaries for GFLW3 (which are available for Windows in MinGW format), and changing the `Makefile` file in order to use the correct compiler/linker/flags. No relevant changes were needed to the engine itself. Finally being able to launch it on Windows is awesome and boosts the percentage of supported platform by a huge amount! :)
+
+Quite surprisingly I found that FPS performances of the Linux VM I'm using as a development machine aren't as bad as I feared. Also, on my laptop, using the on-board Intel graphics card gives better performances than the nVIDIA one. :\
+
+While I was there, I added also an experimental support for **Raspberry-PI**.
+
+The single relevant desktop platform still missing is **MacOS**. Unfortunately I have almost no development experience with it. I imagine that the engine should be portable leveraging GCC... but I would probably use a helping hand from a fellow coder. :)
 
 ## Next to come
 
