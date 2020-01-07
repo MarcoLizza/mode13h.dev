@@ -8,12 +8,10 @@
 /*- Primary style ------------------------------------------------------------*/
 /*----------------------------------------------------------------------------*/
 
-html, body {
-  font-family: 'Raleway', sans-serif;
-}
-h1, h2, h3, h4, h5, h6 {
-  font-family: 'Syncopate', sans-serif;
-//  font-family: 'Bungee', cursive;
+@import url('https://rsms.me/inter/inter.css');
+html { font-family: 'Inter', sans-serif; }
+@supports (font-variation-settings: normal) {
+  html { font-family: 'Inter var', sans-serif; }
 }
 
 body {
