@@ -8,10 +8,11 @@
 /*- Primary style ------------------------------------------------------------*/
 /*----------------------------------------------------------------------------*/
 
-@import url('https://rsms.me/inter/inter.css');
-html { font-family: 'Inter', sans-serif; }
-@supports (font-variation-settings: normal) {
-  html { font-family: 'Inter var', sans-serif; }
+html, body {
+  font-family: 'Raleway', sans-serif;
+}
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Syncopate', sans-serif;
 }
 
 body {
@@ -30,7 +31,6 @@ h1 {
 h2, h3, h4, h5, h6 {
   text-transform: lowercase;
   font-variant: small-caps;
-  font-style: italic;
 }
 
 a {
