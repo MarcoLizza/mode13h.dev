@@ -10,7 +10,7 @@ categories:
 tags:
   - porting
   - file-system
-  - gamepads
+  - gamepad
 published: false
 ---
 End-of-year recap post. It's been (as usual) a while since the last one. Couriously enough, in the last year I wrote only posts related to `#tofuengine`. Well, that's not really strange since it has been the sole off-work project I've been following.
@@ -21,27 +21,15 @@ In the current state, the engine is almost feature complete (given that we can a
 
 Following a brief summary of the highlights of last months' of work.
 
-## Input handling
+## Windows support
 
-Gamepad input almost complete. Sticks and triggers are deadzone-filtered. Left sticks emulates the DPAD, right stick the mouse. Multiple controllers are supported, fallback to keyboard/mouse. `F1` key to switch.
+A major milestone has been **porting** through cross-compilation the engine to **Windows**. This was mostly a matter of modifying adding suitable library binaries for GFLW3 (which are available for Windows in MinGW format), and changing the `Makefile` file in order to use the correct compiler/linker/flags. No relevant changes were needed to the engine itself. Finally being able to launch it on Windows is awesome and boosts the percentage of supported platform by a huge amount! :)
 
-## Interpreter
+Quite surprisingly I found that FPS performances of the Linux VM I'm using as a development machine aren't as bad as I feared. Also, on my laptop, using the on-board Intel graphics card gives better performances than the nVIDIA one. :\
 
-The integration with Lua's VM has been polished.
+While I was there, I added also an experimental support for **Raspberry-PI**.
 
-The module initialization has been refined and the (module-level) C API *upvalues* have been cleared; we are no longer using a single container structure that groups all the sub-systems' instances, but separare upvalues.
-
-Also, the `io` and `os` predefined libraries have been removed (as they are potentially dangerouse since the permit to go outside the engine's sandbox environment).
-
-The boot script has been reworked and extended (and a geeky "Guru Meditation" crash-screen has been added in the debug build), the argument checking has been optimized (types are no longer tested with a function), and script processing is more robust.
-
-I also tested Lua scripts pre-compilation, which I was courious about, and it isn't worth the effort since the final bytecode file is larger than the plain script (which potentially complicate things up).
-
-Once more I'm really please that I chose not to use any Lua-to-C integration library. Lua's C API is really easy and powerful to use, once you grasp some of the key concepts (mostly the stack). After some time it just feels natural... and in some way I fell (pleasant) echoes of assembly programming when I'm dealing with it. :)
-
-## Graphics pipeline
-
-Graphics reworked, non-monochrome font support, final drawing offset. Useful for screen effects (e.g. shaking or scrolling). Will add stencil next, probably. Custom fragment shader is a candidate to be removed.
+The single relevant desktop platform still missing is **MacOS**. Unfortunately I have almost no development experience with it. I imagine that the engine should be portable leveraging GCC... but I would probably use a helping hand from a fellow coder. :)
 
 ## Virtual file-system
 
@@ -96,20 +84,40 @@ When launched with no arguments, the engine search in the current folder (not re
 
 > The maximum amount of entries per archive is huge (`2^32 - 1` entries) and a single archive can store all the required data for any game. However, since multiple mount-points/archives are supported by the engine resources can be split in different archives. This also has the side-effect that, if an entry with the same name is present in more than one archive, the lexicographically last one is used enabling this way for *resource override*.
 
-## Windows support
+## Interpreter
 
-A major milestone has been **porting** through cross-compilation the engine to **Windows**. This was mostly a matter of modifying adding suitable library binaries for GFLW3 (which are available for Windows in MinGW format), and changing the `Makefile` file in order to use the correct compiler/linker/flags. No relevant changes were needed to the engine itself. Finally being able to launch it on Windows is awesome and boosts the percentage of supported platform by a huge amount! :)
+The integration with Lua's VM has been polished.
 
-Quite surprisingly I found that FPS performances of the Linux VM I'm using as a development machine aren't as bad as I feared. Also, on my laptop, using the on-board Intel graphics card gives better performances than the nVIDIA one. :\
+The module initialization has been refined and the (module-level) C API *upvalues* have been cleared; we are no longer using a single container structure that groups all the sub-systems' instances, but separate upvalues.
 
-While I was there, I added also an experimental support for **Raspberry-PI**.
+Also, the `io` and `os` predefined libraries have been removed (as they are potentially dangerous since the permit to go outside the engine's sandbox environment).
 
-The single relevant desktop platform still missing is **MacOS**. Unfortunately I have almost no development experience with it. I imagine that the engine should be portable leveraging GCC... but I would probably use a helping hand from a fellow coder. :)
+The boot script has been reworked and extended (and a geeky "Guru Meditation" crash-screen has been added in the debug build), the argument checking has been optimized (types are no longer tested with a function), and script processing is more robust.
+
+Scripts loading has also been enhanced, by leveraging Lua's `lua_Reader` API. When a script is loaded and interpreted (when a `require` statement is encountered), we no longer need to load the whole file into a temporary buffer and *then* pass it to the interpreter, but the VM can load-and-process the file autonomously requesting smaller chunks as needed. This fit quit well with the file-system virtualization made.
+
+I also tested Lua scripts pre-compilation, which I was courious about, and it isn't worth the effort since the final byte-code file is larger than the plain script (which potentially complicate things up).
+
+Once more I'm really pleased I chose not to use any Lua-to-C integration library. Lua's C API is really easy and powerful to use, once you grasp some of the key concepts (mostly the stack). After some time it just feels natural... and in some way I fell (pleasant) echoes of assembly programming when I'm dealing with it. :)
+
+## Input handling
+
+For the very beginning I aimed for a simple out-of-the-box and uniform input handling.
+
+I designed the keyboard input to mimic a modern controller (think of the PS3/PS4 and Xbox-360/Xbox-ONE ones... minus the thumb-sticks). Adding the mouse input was a not neccesary, but welcome, addition.
+
+However, input handling could be complete without supporting real-life gamepads... and, fortunately, GLFW helps in handling them (and starting from `v3.3` the gamepad support has been really improved).
+
+Gamepad input almost complete. Sticks and triggers are deadzone-filtered. Left sticks emulates the DPAD, right stick the mouse. Multiple controllers are supported, fallback to keyboard/mouse. `F1` key to switch.
+
+## Graphics pipeline
+
+Graphics reworked, non-monochrome font support, final drawing offset. Useful for screen effects (e.g. shaking or scrolling). Will add stencil next, probably. Custom fragment shader is a candidate to be removed.
 
 ## Next to come
 
-This brings us to the next topic: *going public*. **#tofuengine** has been developed with no ambitions of being a freely available and usable game engine. Surely, it's open in nature and I'm more than happy to share it with the community. However, it's a project tailored on the needs and ideas of a single coder (me). It still isn't feature complete, it lacks proper documentation... but...
+This brings us to the next topic: *going public*. **#tofuengine** has been developed with no ambitions of being something that someone else besides me could use. Surely, it's open in nature and I'm more than happy to share it with the community. However, it's a project tailored on the needs and ideas of a single coder (me).
+
+It still isn't feature complete, it lacks proper documentation... but...
 
 ... what if someone else find it useful and/or is willing to collaborate? The idea begins to tantalize me...
-
-Major feature missing: audio support.
