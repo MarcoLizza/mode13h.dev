@@ -13,23 +13,27 @@ tags:
   - gamepad
 published: false
 ---
-End-of-year recap post. It's been (as usual) a while since the last one. Couriously enough, in the last year I wrote only posts related to `#tofuengine`. Well, that's not really strange since it has been the sole off-work project I've been following.
+End-of-year recap post. Oh! It seems that this year I've been writing exclusively about `#tofuengine` (averaging in a post every two months)... which, to be honest, doesn't surprise me as it has been the only off-job project I've been following.
 
-In its first 12 months of life, the engine has seen a lot of changes. From the initial *quick-and-dirty* implementation to the current more polished one, switching from C++ (only in the earliest prototype) to C99, moving from an GPU-based approach to an custom software renderer... it's been a lot of fun! :)
+Anyway, it's been a while since the last update and many things have changed in this iteration... and as any self-respecting newborn, in its first years of life the engine has grown and changed *a lot*. :)
 
-In the current state, the engine is almost feature complete (given that we can always add new features) with a major exception: **audio support**. It has been sketched by picking a support library (namely [miniaudio](https://github.com/dr-soft/miniaudio)) but nothing more. This is going to be the next step to be done.
+In its current state the engine is almost feature complete (given that we can continue adding features endlessly) with a single major exception: **audio support**. This has been only sketched by picking a support library (namely [miniaudio](https://github.com/dr-soft/miniaudio)) but nothing more. This is going to be the next step to be done.
 
-Following a brief summary of the highlights of last months' of work.
+Here's a brief summary highlighting last months' work.
 
 ## Windows support
 
-A major milestone has been **porting** through cross-compilation the engine to **Windows**. This was mostly a matter of modifying adding suitable library binaries for GFLW3 (which are available for Windows in MinGW format), and changing the `Makefile` file in order to use the correct compiler/linker/flags. No relevant changes were needed to the engine itself. Finally being able to launch it on Windows is awesome and boosts the percentage of supported platform by a huge amount! :)
+Honestly, when I decided to use Linux and GCC as a development environment I wished not to be forced to use [Visual Studio](https://visualstudio.microsoft.com/) (despite knowing it well and using it since twenty years) to carry on the Windows porting of the engine. Well, guess what? My wish came true! :)
+
+With GCC's MinGW cross-compiler this was just a matter of modifying adding suitable library binaries for [GFLW3](https://www.glfw.org/) (which are available for Windows in MinGW format), and changing the `Makefile` file in order to use the correct compiler/linker/flags. No relevant changes were needed to the engine itself, which was already as much platform-independent as possible.
+
+On the first launch on Windows I was holding my breath... and it just worked! Whoo-ooh!
 
 Quite surprisingly I found that FPS performances of the Linux VM I'm using as a development machine aren't as bad as I feared. Also, on my laptop, using the on-board Intel graphics card gives better performances than the nVIDIA one. :\
 
 While I was there, I added also an experimental support for **Raspberry-PI**.
 
-The single relevant desktop platform still missing is **MacOS**. Unfortunately I have almost no development experience with it. I imagine that the engine should be portable leveraging GCC... but I would probably use a helping hand from a fellow coder. :)
+Having landed on Windows boosts the total percentage of supported-platforms by a huge amount! The single relevant desktop platform still missing is **MacOS**. Unfortunately I have almost no development experience with it. I imagine we could be leveraging GCC once again... but I would probably use a helping hand from a fellow coder. :)
 
 ## Virtual file-system
 
@@ -86,17 +90,17 @@ When launched with no arguments, the engine search in the current folder (not re
 
 ## Interpreter
 
-The integration with Lua's VM has been polished.
+The integration with Lua's VM has been polished in several spots.
 
-The module initialization has been refined and the (module-level) C API *upvalues* have been cleared; we are no longer using a single container structure that groups all the sub-systems' instances, but separate upvalues.
+The module initialization has been refined and the way *up-values* are passed to the (C side) modules have been cleared; we no longer use a single container structure that groups all the sub-systems' instances, but separate up-values.
 
-Also, the `io` and `os` predefined libraries have been removed (as they are potentially dangerous since the permit to go outside the engine's sandbox environment).
+As a security measure, the predefined `io` and `os` Lua libraries have been removed. They are potentially dangerous as the enable access to the OS outside the engine's sandbox environment.
 
-The boot script has been reworked and extended (and a geeky "Guru Meditation" crash-screen has been added in the debug build), the argument checking has been optimized (types are no longer tested with a function), and script processing is more robust.
+The boot script has been reworked, extended, and a geeky [Guru Meditation](https://en.wikipedia.org/wiki/Guru_Meditation) crash-screen has been added (in the debug build). Also, the (debug build) C API argument checking has been optimized (types are no longer tested with a function), and the script loading and processing is more robust.
 
-Scripts loading has also been enhanced, by leveraging Lua's `lua_Reader` API. When a script is loaded and interpreted (when a `require` statement is encountered), we no longer need to load the whole file into a temporary buffer and *then* pass it to the interpreter, but the VM can load-and-process the file autonomously requesting smaller chunks as needed. This fit quit well with the file-system virtualization made.
+By leveraging Lua's `lua_Reader` API, when a script is loaded and interpreted (when a `require` statement is encountered) we no longer need to (pre)load the whole file into a temporary buffer and *then* pass it to the interpreter. Using a custom reader, the VM can load-and-process the file autonomously, requesting smaller chunks as needed. This fit well with the file-system virtualization made.
 
-I also tested Lua scripts pre-compilation, which I was courious about, and it isn't worth the effort since the final byte-code file is larger than the plain script (which potentially complicate things up).
+Lua script can be provided in two flavours: plain text, or pre-compiled byte-code. Support for pre-compiled scripts was missing until now. To be honest, I don't think script pre-compilation is really worth the effort. I was courious about it, but the pre-compiled script is far larger than the original one. Although the VM should process it faster, the loading process slows down a bit. This add also an additional layer of complexity, potentially complicating the game packing process. One benefit of the pre-compilation is the static check of the script, but this is something that [luacheck](https://github.com/mpeterv/luacheck) does even better and can be integrated in the IDE (for example, in [Visual Studio Code](https://code.visualstudio.com/) there exists an [proper extensions](https://marketplace.visualstudio.com/items?itemName=trixnz.vscode-lua)) or in the building tool-chain. Anyway, this is something the engine does support so if one wants to pack pre-compiled scripts... it is possible.
 
 Once more I'm really pleased I chose not to use any Lua-to-C integration library. Lua's C API is really easy and powerful to use, once you grasp some of the key concepts (mostly the stack). After some time it just feels natural... and in some way I fell (pleasant) echoes of assembly programming when I'm dealing with it. :)
 
