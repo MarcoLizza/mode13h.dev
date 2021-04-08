@@ -10,7 +10,6 @@ tags:
   - development
   - engine
 ---
-
 It's been quite a while since the last blog post. Summer has passed, and due to job/family/life/whatever I ended in not working on game development as much as I intended. I procrastinated a while, also indulging in some console games (note for the future myself, I'm beginning to grow tired of current sandbox games... is the genre which has become stale and can be refreshed or is it doomed?). I simply wasn't able to follow the monthly #1GAM jams, as well.
 
 However, I devised some intriguing ideas and worked on my game framework. I enhanced the entity management module (not in the [ECS](https://en.wikipedia.org/wiki/Entity_component_system) sense) I'm evolving over time. For the record, it's purpose is to handle a collection of so-called *entities* (clever and original name, I know) by driving the updating and drawing steps. It also takes care of collision detection, which was the main area of this enhancement.

@@ -31,7 +31,7 @@ On top of that I need to say that, despite liking **LÖVE**, there are some thin
 * the dependency on **SDL** (I would rather switch to **SFML**),
 * the fact that it was using an old version of **Lua** (version *5.1*, since **Luajit** development halted with this version),
 * its sometime not coherent and (too) generic API, in term of features, that can adapt to every developer's need but requires a decent amount of boilerplate code, and
-* its name and the overall mood of the community (infested with too much frat humor).
+* its name and the overall mood of the community (infested with too much frat humour).
 
 The game-engine requisites for my game-engine haven't changed much over the years, that is
 

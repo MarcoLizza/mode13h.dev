@@ -17,7 +17,7 @@ In the context of **#gamedev** this could mean that there's not a single [sortin
 
 Let's take, for example, a little demo I was writing some days ago with **#tofuengine**. Nothing too fancy, just a small *old-skool* demo/intro to testing some engine's features. At one point, there is a bunch of stars rotating and falling from the above, divided into five different depth levels. The star objects are maintained into a random-generated list, and once a start reaches the bottom of the screen a new one is created with random velocity/position/depth.
 
-Just as any just-below-noob-level **gamedev** knows, to properly render something like this, the [painter's algorithm](https://en.wikipedia.org/wiki/Painter%27s_algorithm) is to be applied... and the most straight-forward (naive?) way to accomplish it keep the list sorted, by (re)sorting it each time an object is added (but not removed, as removal preserves ordering). In [Lua](), which is the scripting language used by the game-engine, this can be accomplished by calling the `table.sort()` function.
+Just as any just-above-noob-level **gamedev** knows, to properly render something like this, the [painter's algorithm](https://en.wikipedia.org/wiki/Painter%27s_algorithm) is to be applied... and the most straight-forward (naive?) way to accomplish it keep the list sorted, by (re)sorting it each time an object is added (but not removed, as removal preserves ordering). In [Lua](), which is the scripting language used by the game-engine, this can be accomplished by calling the `table.sort()` function.
 
 ```lua
 local function spawn(objects, name)

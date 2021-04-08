@@ -12,7 +12,7 @@ tags:
   - scripting
 ---
 
-Some days ago I was fiddling with some Lua code, intending to achieve a splash/boot screen inspired to the one developed by Nintendo for the *Game Boy*. A single-line text entering from the top of the screen and scrolling down until it reaches the center of it. Once on the final position, a jingle is played.
+Some days ago I was fiddling with some Lua code, intending to achieve a splash/boot screen inspired to the one developed by Nintendo for the *Game Boy*. A single-line text entering from the top of the screen and scrolling down until it reaches the centre of it. Once on the final position, a jingle is played.
 
 Notwithstanding being a very basic task, it offers the opportunity for uncovering some interesting code. The most naïve approach requires very little code and it would certainly work. With some additional effort, we can develop some interesting and general code that can be reused in many other circumstances. The most interesting part is how the text is moved through the screen, that is the *path* it follows. Rather than coding the path movement **inside** the `Message` object we are better off creating a `Path` object that implements it and that can be used by the former.
 

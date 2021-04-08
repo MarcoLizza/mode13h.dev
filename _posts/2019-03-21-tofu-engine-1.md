@@ -70,7 +70,7 @@ As a side note, in the bootstrap code above we can spot how modules are accessed
 
 One feature I really loved back in the Amiga/DOS days is the use of palettes. Perhaps it's just a matter of habit and nostalgia, but there were a number of special effects that were achieved with ease (e.g. color cycling, color remapping, (cross)fading, fire, blobs, shade-BOBs, etc...) that I miss very much.
 
-For this reason, it has been mandatory for me to support palettized rendering natively in my engine.
+For this reason, it has been mandatory for me to support palletized rendering natively in my engine.
 
 This can be easily done with a custom fragment-shader:
 
@@ -84,7 +84,7 @@ One thing to notice is that OpenGL poses a limit to the maximum amount of elemen
 
 > Another approach for palette support can be achieved by using a **texture buffer object**, that is a one-dimensional texture carrying shared data from the application to the shader. However, at the moment *raylib* doesn't support it properly... perhaps I'll get back to this issue in the future and check if it might be something of interest for optimization.
 
-In order for the palettized rendering to work, textures/images need to be "patched" runtime. Each pixel is replaced with an "indexing color" by searching the nearest-matching color in the current active palette. At the moment this requires (due to the library features) to allocate an additional temporary support buffer. It would be nice to have it work through a callback during the loading itself so that an additional (re)scan and support buffer won't be needed.
+In order for the palletized rendering to work, textures/images need to be "patched" runtime. Each pixel is replaced with an "indexing color" by searching the nearest-matching color in the current active palette. At the moment this requires (due to the library features) to allocate an additional temporary support buffer. It would be nice to have it work through a callback during the loading itself so that an additional (re)scan and support buffer won't be needed.
 
 ## Sample applications
 

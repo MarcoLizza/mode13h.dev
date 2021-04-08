@@ -28,7 +28,7 @@ Among the several changes/additions I also moved the thread resuming by permitti
 
 So, at last, here's the Lua code:
 
-{% highlight lua %}
+```lua
 -- @module scheduler
 local scheduler = {}
 
@@ -271,7 +271,7 @@ function scheduler.dump()
 end
 
 return scheduler
-{% endhighlight %}
+```
 
  [1]: http://www.mohiji.org/2012/12/14/lua-coroutines/
  [2]: http://www.mohiji.org/
