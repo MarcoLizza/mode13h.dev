@@ -115,15 +115,15 @@ test_chained()
 If we peek at the code generated for the functions `test` and `test_chained` (using the `luac -l` command) we get the same code, that is
 
 ```txt
-	1	[14]	GETTABUP 	0 0 -1	; Counter "new"
-	2	[14]	CALL     	0 1 2
-	3	[15]	SELF     	1 0 -2	; "inc"
-	4	[15]	CALL     	1 2 1
-	5	[16]	SELF     	1 0 -2	; "inc"
-	6	[16]	CALL     	1 2 1
-	7	[17]	SELF     	1 0 -2	; "inc"
-	8	[17]	CALL     	1 2 1
-	9	[18]	RETURN   	0 1
+GETTABUP 	0 0 -1	; Counter "new"
+CALL     	0 1 2
+SELF     	1 0 -2	; "inc"
+CALL     	1 2 1
+SELF     	1 0 -2	; "inc"
+CALL     	1 2 1
+SELF     	1 0 -2	; "inc"
+CALL     	1 2 1
+RETURN   	0 1
 ```
 
 There's no additional benefit for the VM in chaining the calls. Moreover, the `inc_chained()` carries the additional cost of returning the `self` reference (and wastes a VM stack slot for storing it).
