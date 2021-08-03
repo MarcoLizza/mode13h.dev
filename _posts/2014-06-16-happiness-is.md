@@ -32,6 +32,6 @@ It's targeted (at first) to Windows CE ARM-based handheld mobile devices where m
 
 On top of this, some extra features are needed. Due to the strict dependency with the hardware itself, they will be certainly added as modules (possibly Lua modules?). Haven't figured yet what's the best approach. :)
 
-It's quite a rewarding activity to create such an app-engine, and in the next weeks I'll be describing in more in details it's development.
+It's quite a rewarding activity to create such an app-engine, and in the next weeks I'll be describing in more in details its development.
 
 Stay tuned! :)

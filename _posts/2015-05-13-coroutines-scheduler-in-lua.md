@@ -165,7 +165,7 @@ function scheduler.signal(id)
         -- Signalled threads are not resumed here, but marked as "ready"
         -- and awaken when calling [schedule.pulse()].
         -- This ensure that threads won't be start from within another
-        -- thread body but only from a single dispacter loop. That is,
+        -- thread body but only from a single dispatcher loop. That is,
         -- threads are suspended only from an explicit [sleep()] or
         -- [wait()] call, and not since they are waking up some other
         -- thread.
@@ -183,7 +183,7 @@ end
 --
 -- Creates a new thread bound to the passed function [procedure]. If passed
 -- the [priority] argument indicates the thread priority (higher values
--- means lower priority), otherwhise sets it to zero as a default.
+-- means lower priority), otherwise sets it to zero as a default.
 -- The thread is initially suspended and will wake up on the next
 -- [scheduler.pulse()] call.
 --

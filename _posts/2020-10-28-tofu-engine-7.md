@@ -16,7 +16,7 @@ How deep does the rabbit hole go?
 
 Quite a bit. :)
 
-It all started in early August when a fellow **#gamedev** wrote a post about a game-prototype. It was nice and polished, with a nice CRT-like shader. However, the single thing that struck me the most was the tracker-based background music. Holy [Paula](http:www.paula.com)! How could I overlook to add support for [module-files](https://en.wikipedia.org/wiki/Module_file) in **#tofuengine**?
+It all started in early August when a fellow **#gamedev** wrote a post about a game-prototype. It was nice and polished, with a nice CRT-like shader. However, the single thing that struck me the most was the tracker-based background music. Holy [Paula](https://en.wikipedia.org/wiki/Original_Chip_Set#Paula)! How could I overlook to add support for [module-files](https://en.wikipedia.org/wiki/Module_file) in **#tofuengine**?
 
 I rapidly started to search for a module-file player library, with an initial clue leading to the one used in [Raylib's audio sub-system](https://github.com/raysan5/raudio). It turned out to be [jar_xm](https://github.com/kd7tck/jar), a cute single-header library (which I'm rapidly growing tired of using). Being just a "facade" for [libxm](https://github.com/Artefact2/libxm), I spent some time (re)working the latter (most notably to support callback driven-I/O and to optimize the player). Unfortunately, the more I was working on it, the more inaccuracies I found and was required to fix... what a pity!
 
