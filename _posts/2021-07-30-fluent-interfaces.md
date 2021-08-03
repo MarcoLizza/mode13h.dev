@@ -114,7 +114,7 @@ test_chained()
 
 If we peek at the code generated for the functions `test` and `test_chained` (using the `luac -l` command) we get the same code, that is
 
-```txt
+```dart
 GETTABUP 	0 0 -1	; Counter "new"
 CALL     	0 1 2
 SELF     	1 0 -2	; "inc"
