@@ -38,7 +38,7 @@ Without an intimate knowledge of its implementation, we cannot be sure of the me
 
 ## Enter Lua
 
-Let's open a parenthesis and move to a scripting language, for a moment.
+Let's move from C++ to a scripting language.
 
 Recently I was implementing the *physic sub-system* for [**#tofuengine**](/tofu-engine), and when creating the `Body` UDT it seemed like a valid case for adopting a fluent interface. A body has many properties (size, shape, type, mass, position, momentum, etc...) and upon creation, we might be interested in setting only a sub-set of them (the others being left to their respective default values). A possible approach is to provide in the constructor the "basic" properties and letting the programmer set the other one later on:
 
@@ -100,19 +100,20 @@ local function test()
   object:inc()
   object:inc()
   object:inc()
-  print(object.value)
 end
 
 local function test_chained()
   local object = Counter.new()
-  object:inc_chained():inc_chained():inc_chained()
+    :inc_chained()
+    :inc_chained()
+    :inc_chained()
 end
 
 test()
 test_chained()
 ```
 
-If we peek at the code generated for the functions `test` and `test_chained` (using the `luac -l` command) we get the same code, that is
+The generated code for `test`
 
 ```dart
 GETTABUP 	0 0 -1	; Counter "new"
@@ -126,7 +127,21 @@ CALL     	1 2 1
 RETURN   	0 1
 ```
 
-There's no additional benefit for the VM in chaining the calls. Moreover, the `inc_chained()` carries the additional cost of returning the `self` reference (and wastes a VM stack slot for storing it).
+and `test_chained` (we can obtain it with the `luac -l` command)
+
+```dart
+GETTABUP 	0 0 -1	; Counter "new"
+CALL     	0 1 2
+SELF     	0 0 -2	; "inc_chained"
+CALL     	0 2 2
+SELF     	0 0 -2	; "inc_chained"
+CALL     	0 2 2
+SELF     	0 0 -2	; "inc_chained"
+CALL     	0 2 2
+RETURN   	0 1
+```
+
+are pretty identical. Apparently, there's no additional benefit for the VM in chaining the calls. Moreover, the `inc_chained()` carries the additional cost of returning the `self` reference (and wastes a VM stack slot for storing it).
 
 ## Is fluency worth using?
 
