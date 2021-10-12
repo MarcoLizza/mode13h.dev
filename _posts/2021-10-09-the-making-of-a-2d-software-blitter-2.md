@@ -19,13 +19,19 @@ In the [previous part](/the-making-of-a-2d-software-blitter-1) we've covered the
 
 ## Clipping
 
-I've mentioned earlier that our` gfx_surface_blit()` function is going to have issues when drawing a sprite beyond the (rectangular) margins of the destination image. For example, if we were to try and blit a `4x4` sprite over a `16x16` image, starting at position `<14, 6>`...
+I've mentioned earlier that our `gfx_surface_blit()` function is going to have issues when drawing a sprite beyond the (rectangular) margins of the destination image. For example, if we were to try and blit a `4x4` sprite over a `16x16` image, starting at position `<14, 6>`...
+
+![Blitting outside the boundaries](/assets/images/clipping-1.png)
 
 ... that would result in the two exceeding sprite's columns of pixel appearing at the left-most margin of image, but with a 1-pixel vertical displacement. That should be obvious if we recall that we are representing our 2-dimensional image with a 1-dimensional array. The valid indexes for our array go from `0` to `width * height - 1 = 16 * 16 - 1 = 31`. As long as each `<x, y>` pixel we are drawing, once converted to an array index with the formula `y * width * x = y * 16 + x`, lies in this range we are safe from [segfaults](https://en.wikipedia.org/wiki/Segmentation_fault). However, if we don't constrain `x` in the range `[0, width - 1] = [0, 16 - 1] = [0, 15]` (and similarly `y` in the range `[0, height - 1] = [0, 16 - 1] = [0, 15]`, different `<x, y>` pairs could refer to the same array slot. For example, the third pixel (the red one) of the first row of our sprite lies at position `<16, 6>`, which is at the same index as `<0, 7>`.
+
+![Warp-tunnel effect](/assets/images/clipping-2.png)
 
 This might seems just a courious glitch... but what happens if we increase `x` and `y` ending with one pixel at position `<0, 16>`. Yep... we get a segmentation fault, as index `y * width * x = 16 * 16 + 0 = 32` lies beyond the array boundaries. The same happens when `x` and/or `y` are negative.
 
 A downright naive solution to this issue is to limit `x` and `y` ensuring the sprite won't overflow the destination image margins.
+
+![Naive solution to clipping](/assets/images/clipping-3.png)
 
 Using any of the *blue* pixels as top-left corner destination for our sprite will ensure no glitches at all. Perfect! Problem solved...
 
