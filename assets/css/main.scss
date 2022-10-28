@@ -224,10 +224,17 @@ footer.main-footer {
     }
   }
 
-  li a.google {
+  li a.discord {
     background-position: -128px 0;
     &:hover {
       background-position: -128px -32px;
+    }
+  }
+
+  li a.mastodon {
+    background-position: -160px 0;
+    &:hover {
+      background-position: -160px -32px;
     }
   }
 
