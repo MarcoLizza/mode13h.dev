@@ -117,8 +117,10 @@ Now we finally can draw sprites everywhere around another surface. How cool is t
 So we can proceed and draw distinct images, each for one of our sprites (and for each frame of each sprite). Load them into an array of images, and draw when by indexing the required one with an index. Something like this
 
 ```c
+// We assume this function has been implemented somewhere else...
 extern gfx_surface_t *gfx_surface_load(const char *pathfile);
 
+// ... and also this, returning a randomized integer.
 extern int random_int(int min, int max);
 
 #define SPRITES_COUNT   8
@@ -132,7 +134,7 @@ static const char *_sprite_pathfiles[SPRITES_COUNT] = {
     "assets/images/enemy-star.png",
     "assets/images/enemy-ball.png",
     "assets/images/enemy-spikes.png"
-}
+};
 
 int main()
 {
