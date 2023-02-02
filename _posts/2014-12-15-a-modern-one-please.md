@@ -51,7 +51,7 @@ Of course, there are several other aspects that need to be clarified and a decis
  * **cross-platform**: will it be a Windows-only engine? Or I plan to port it to other platforms, too?
  * **architecture**: old-fashioned OOP hierarchies or component based design?
 
- [1]: //mode13h.io/happyness-is
+ [1]: //mode13h.dev/happyness-is
  [2]: //luace.codeplex.com
  [3]: //www.squirrel-lang.org
  [4]: //studio.zerobrane.com
