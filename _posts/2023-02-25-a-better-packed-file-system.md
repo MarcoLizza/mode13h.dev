@@ -47,7 +47,7 @@ This results in `8096 * 24 = 194304`, a total of about 190KiB of RAM will be use
 
 **Q3.** Is there a benefit in storing the *directory* explicitly in the archive file?
 
-**A3.** When a *directory* entry is loaded from the file, being a single one or multiple entries, it can't be used as it is. The serialized data-types conform to some arbitrary format (e.g. the file size is stored using a 32-bit unsigned value), but we could be running on architecture [with a different word size](^1) (e.g. 64 bit). This requires an additional post-load marshaling step.
+**A3.** When a *directory* entry is loaded from the file, being a single one or multiple entries, it can't be used as it is. The serialized data-types conform to some arbitrary format (e.g. the file size is stored using a 32-bit unsigned value), but we could be running on architecture with a different word size[^1] (e.g. 64 bit). This requires an additional post-load marshalling step.
 
 Also, creating the directory into the archive file requires a (minor) additional effort as it needs to be computed and written somewhere with the file (typically, either just after the archive header or at the very end of it)
 
@@ -61,14 +61,14 @@ Searching from within the on-file directory, on the other hand, requires several
 
 **Q5.** Could be worth considering an [IFF-like](https://en.wikipedia.org/wiki/Interchange_File_Format) format for the archive?
 
-**A5.** as we are modeling something like a virtual file-system on file, and not a generic extendable file format; the file is readable, we know what it will contain and we can optimize it. if we need more data/format in the future we will just update the version of it.
+**A5.** as we are modelling something like a virtual file-system on file, and not a generic extendable file format; the file is readable, we know what it will contain and we can optimize it. if we need more data/format in the future we will just update the version of it.
 
 ---
 
 With all this being said we redesigned the archive format once again, making it more similar to the initial implementation. We can recap the design choices as follows:
 
 * the archive structure is straight a simple: header, directory, payload;
-* each file is represented in the archive with the [MD5 digest of its name](^2);
+* each file is represented in the archive with the MD5 digest of its name[^2];
 * filenames are *case insensitive* (I'm adamant that using case sensitiveness in a file-system is just a recipe for disaster), they are treated as lowercase to avoid confusion/mistakes;
 * the directory of the archive is stored at the beginning of the archive, just after the archive header: this makes directory access trivial, as the archive header is fixed in size and we don't need to store this offset somewhere in the archive metadata;
 * we are not implementing compression and each file is stored with its native format (which is in turn quite likely an optimally chosen one, e.g. PNG, with the sole exception of the script files which could potentially benefit from a custom compression algorithm);
@@ -76,7 +76,7 @@ With all this being said we redesigned the archive format once again, making it 
 
 Storing the file offset in each directory entry enables [binary search](https://en.wikipedia.org/wiki/Binary_search_algorithm) as once the correct entry is fetched all the required details are ready to be used. We make this feature optional, however, with a flag into the archive meta-data telling whether the directory is sorted. If not a linear search is used.
 
-This results in a [very minimalistic file format](^3), which stores only what is vital for the archive to work.
+This results in a very minimalistic file format[^3], which stores only what is vital for the archive to work.
 
 ---
 
