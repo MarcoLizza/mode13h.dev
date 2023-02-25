@@ -111,6 +111,6 @@ local MapFilterReduce = {
 }
 ```
 
-While this can be seen as an instance of *premature optimization*, it's benefits are concrete (an x8 speed increase for the `map` and `filter` meta-functions) and the final code is not significantly less elegant than the former.
+While this can be seen as a case of *premature optimization*, it's benefits are concrete (an x8 speed increase for the `map` and `filter` meta-functions) and the final code is not significantly less elegant than the former.
 
 Will I be using it in my **#gamedev** endeavours? Let's see...
