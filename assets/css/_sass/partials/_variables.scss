@@ -1,27 +1,27 @@
-$Black: #000000;
-$Dark: #2c2137;
-$MidDark: #446176;
-$MidLight: #3fac95;
-$Light: #a1ef8c;
-$White: #fbf5ef;
+$Darkest: rgba(40, 42, 54, 1);
+$Dark: rgba(68, 71, 90, 1);
+$MidDark: rgba(98, 114, 164, 1);
+$MidLight: rgba(255, 108, 184, 1);
+$Light: rgba(80, 250, 123, 1);
+$Lightest: rgba(248, 248, 242, 1);
 
 // General colors
-$background-color: $Black;
+$background-color: $Darkest;
 $secondary-background-color: $Dark;
-$primary-color: $White;
+$primary-color: $Lightest;
 $secondary-primary-color: $Light;
 $secondary-color: $MidLight;
 $headings-color: $Light;
 $separator-color: $Dark;
 $box-color: rgba($MidLight, 0.7);
-$border-color: $White;
-$shadow-color: $White;
+$border-color: $Lightest;
+$shadow-color: $Lightest;
 
-$text-color: $White;
+$text-color: $Lightest;
 $meta-color: $MidDark;
 
 $link-normal: $Light;
 $link-hover: $Light;
 
-$social-link-normal: $White;
+$social-link-normal: $Lightest;
 $social-link-hover: $Dark;
