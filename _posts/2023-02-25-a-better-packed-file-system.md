@@ -23,7 +23,7 @@ Back to square one, then, and discuss each issue one by one.
 
 **A1.** No, not really. We are already calculating the filename digest to (eventually) use it as an encryption key. We could store it straight into the directory index and, at the expense of a constant *directory entry* size, load it into memory in one go!
 
-> Note that need to derive *another* encryption key from the digest. Using as-it-is would be way too naive, as we would be storing the file both the key and the data, side by side! :)
+> Note that we need to derive *another* encryption key from the digest. The latter is stored as plain-text in the directory-entry header, and using as-it-is would be a way too naive protection scheme! (as we would be storing the file both the key and the data in the same place)
 
 **Q2.** Can we afford to keep in memory the whole directory?
 
