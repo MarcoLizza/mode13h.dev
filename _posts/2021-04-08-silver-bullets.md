@@ -41,7 +41,7 @@ Presto!
 
 Well, not really.
 
-By doing this we'll soon be noticing that something isn't going as we expect. Occasionally, objects at the same depth level appear as "fighting" for the drawing precedence. No, that's not due to some sort of depth-resolution (as in [Z-fighting](https://en.wikipedia.org/wiki/Z-fighting)) but because Lua's sorting routine **is not [stable](https://en.wikipedia.org/wiki/Sorting_algorithm#Stability)** and, when (re)sorting the list of objects it happens that already sorted items are "moved" in the list. Run the following code, as an example of this behaviour.
+By doing this we'll soon be noticing that something isn't going as we expect. Occasionally, objects at the same depth level appear as "fighting" for the drawing precedence. No, that's not due to some sort of depth-resolution (as in [Z-fighting](https://en.wikipedia.org/wiki/Z-fighting)) but because Lua's sorting routine **is not [stable](https://en.wikipedia.org/wiki/Sorting_algorithm#Stability)** and, when (re)sorting the list of objects on successive frames it happens that list-adjacent entries are swapped/moved in the list. Run the following code, as an example of this behaviour.
 
 ```lua
 function dump(t)
@@ -87,7 +87,7 @@ You'll get this output. It's evident that in the first `sorted` result the relat
 [a 0] [d 0] [g 0] [b 1] [e 1] [h 1] [f 2] [c 2] [i 2]
 ```
 
-In Lua, the [`table.sort()`](https://www.lua.org/source/5.2/ltablib.c.html#auxsort) function implements Sedgewick's [quicksort](https://en.wikipedia.org/wiki/Quicksort) algorithm. The behaviour is intrinsically "by-design" and unpredictable, but will eventually occur. Don't get me wrong. Hoare's *quicksort* is an amazing algorithm and it's somewhat a "jack of all trades"... but it simply can't be the *best* choice in every context. In this perspective, the best choice is the one made with Python's [Timsort](https://en.wikipedia.org/wiki/Timsort).
+In Lua, the [`table.sort()`](https://www.lua.org/source/5.2/ltablib.c.html#auxsort) function implements Sedgewick's [quicksort](https://en.wikipedia.org/wiki/Quicksort) algorithm. This is an intrinsically "by-design" unpredictable behaviour, but will eventually occur. Don't get me wrong. Hoare's *quicksort* is an amazing algorithm and it's somewhat a "jack of all trades"... most of the time... but it simply can't be the *best* choice in every context! From this perspective, the "best-with-exceptions" choice is the one made with Python's [Timsort](https://en.wikipedia.org/wiki/Timsort).
 
 > Another personal favourite of mine is [Merge sort](https://en.wikipedia.org/wiki/Merge_sort), which is even "older" than quicksort. It's stable, highly parallelizable, and fast. Consider that it was conceived in an age when data was stored on magnetic tapes which were not random-accessible and very slow. How cunning to find an algorithm efficient for them?
 
