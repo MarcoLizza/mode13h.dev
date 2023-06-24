@@ -13,9 +13,9 @@ tags:
 ---
 There is no silver bullet. Never.
 
-In the context of **#gamedev** this could mean that there's not a single [sorting algorithms](https://en.wikipedia.org/wiki/Sorting_algorithm) that can suit every case. Well, to be honest, this is something that anyone with a basic *Computer Science* education of some sort should know. Yep, I'm saying that all those hours spent in learning all the various sorting algorithms on [that Robert Sedgewick's book](https://algs4.cs.princeton.edu/home/) will eventually turn useful, sooner or later. :)
+In the context of **#gamedev** this could mean that there's not a single [sorting algorithm](https://en.wikipedia.org/wiki/Sorting_algorithm) that can suit every case. Well, to be honest, this is something that anyone with a basic *Computer Science* education of some sort should know. Yep, I'm saying that all those hours spent learning all the various sorting algorithms in [that Robert Sedgewick's book](https://algs4.cs.princeton.edu/home/) will eventually turn useful, sooner or later. :)
 
-Let's take, for example, a little demo I was writing some days ago with **#tofuengine**. Nothing too fancy, just a small *old-skool* demo/intro to testing some engine's features. At one point, there is a bunch of stars rotating and falling from the above, divided into five different depth levels. The star objects are maintained into a random-generated list, and once a start reaches the bottom of the screen a new one is created with random velocity/position/depth.
+Let's take, for example, a little demo I was writing some days ago with **#tofuengine**. Nothing too fancy, just a small *old-skool* demo/intro to testing some engine's features. At one point, there is a bunch of stars rotating and falling from above, divided into five different depth levels. The star objects are maintained in a random-generated list, and once a start reaches the bottom of the screen a new one is created with random velocity/position/depth.
 
 Just as any just-above-noob-level **gamedev** knows, to properly render something like this, the [painter's algorithm](https://en.wikipedia.org/wiki/Painter%27s_algorithm) is to be applied... and the most straight-forward (naive?) way to accomplish it keep the list sorted, by (re)sorting it each time an object is added (but not removed, as removal preserves ordering). In [Lua](), which is the scripting language used by the game-engine, this can be accomplished by calling the `table.sort()` function.
 
@@ -27,7 +27,7 @@ local function spawn(objects, name)
       depth = math.random(1, 5)
     }
   table.insert(object, object)
-  table.sort(objects, function(a, b) return a.depth < b.depth end) -- In real-world case, one shouldn't use
+  table.sort(objects, function(a, b) return a.depth < b.depth end) -- In real-world cases, one shouldn't use an unnamed function.
 end
 
 local function render(objects)
@@ -89,7 +89,7 @@ You'll get this output. It's evident that in the first `sorted` result the relat
 
 In Lua, the [`table.sort()`](https://www.lua.org/source/5.2/ltablib.c.html#auxsort) function implements Sedgewick's [quicksort](https://en.wikipedia.org/wiki/Quicksort) algorithm. The behaviour is intrinsically "by-design" and unpredictable, but will eventually occur. Don't get me wrong. Hoare's *quicksort* is an amazing algorithm and it's somewhat a "jack of all trades"... but it simply can't be the *best* choice in every context. In this perspective, the best choice is the one made with Python's [Timsort](https://en.wikipedia.org/wiki/Timsort).
 
-> Another personal favourite of mine is [Merge sort](https://en.wikipedia.org/wiki/Merge_sort), which is even "older" than quicksort. It's stable, highly parallelizable, fast. Consider that it was conceived in an age when data was stored on magnetic tapes which were not random-accessible and very slow. How cunning to find an algorithm efficient for them?
+> Another personal favourite of mine is [Merge sort](https://en.wikipedia.org/wiki/Merge_sort), which is even "older" than quicksort. It's stable, highly parallelizable, and fast. Consider that it was conceived in an age when data was stored on magnetic tapes which were not random-accessible and very slow. How cunning to find an algorithm efficient for them?
 
 Cool. Back to the initial issue, how do we solve it? Well, we have at least two viable options.
 
@@ -116,9 +116,9 @@ local function spawn(objects, name)
 end
 ```
 
-With a bit of additional boilerplate code, we are tracking the object with an identifier (but we could have used a time-stamp with enough resolution, probably) and exploit it to sort equally depth objects (older objects come first). This is a legitimate solution, but unless one is already tracking the objects (for example, due to the presence of an [entity-component system](https://en.wikipedia.org/wiki/Entity_component_system)), the additional complexity is not worth the effort. Also, as the comparator is more complex, the general actual cost for each call will increase.
+With a bit of additional boilerplate code, we are tracking the object with an identifier (but we could have used a time-stamp with enough resolution, probably) and exploiting it to sort equally depth objects (older objects come first). This is a legitimate solution, but unless one is already tracking the objects (for example, due to the presence of an [entity-component system](https://en.wikipedia.org/wiki/Entity_component_system)), the additional complexity is not worth the effort. Also, as the comparator is more complex, the general actual cost for each call will increase.
 
-We can do better by making some considerations on the problem we are solving itself: we are sorting a list of `n` objects where `n - 1` of them always sorted, except for the newest one which is almost certainly out-of-place. The **optimal** approach, then, is just to scan the list searching for the first object *greater-or-equal* than the new one and insert it there.
+We can do better by making some considerations on the problem we are solving itself: we are sorting a list of `n` objects where `n - 1` of them is always sorted, except for the newest one (which is almost certainly out-of-place). The **optimal** approach, then, is just to scan the list searching for the first object *greater-or-equal* than the new one and insert it there.
 
 ```lua
 local function add(table, item, comparator)
