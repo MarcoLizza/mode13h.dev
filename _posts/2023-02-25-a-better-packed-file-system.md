@@ -61,13 +61,13 @@ Searching from within the on-file directory, on the other hand, requires several
 
 **Q5.** Could be worth considering an [IFF-like](https://en.wikipedia.org/wiki/Interchange_File_Format) format for the archive?
 
-**A5.** as we are modelling something like a virtual file-system on file, and not a generic extendable file format; the file is readable, we know what it will contain and we can optimize it. if we need more data/format in the future we will just update the version of it.
+**A5.** As we are modelling something like a virtual file-system on file, and not a generic extendable file format; the file is readable, we know what it will contain and we can optimize it. If we need more data/format in the future we will just update the version of it.
 
 ---
 
 With all this being said we redesigned the archive format once again, making it more similar to the initial implementation. We can recap the design choices as follows:
 
-* the archive structure is straight a simple: header, directory, payload;
+* the archive structure is straight and simple: header, directory, payload(s);
 * each file is represented in the archive with the MD5 digest of its name[^2];
 * filenames are *case insensitive* (I'm adamant that using case sensitiveness in a file-system is just a recipe for disaster), they are treated as lowercase to avoid confusion/mistakes;
 * the directory of the archive is stored at the beginning of the archive, just after the archive header: this makes directory access trivial, as the archive header is fixed in size and we don't need to store this offset somewhere in the archive metadata;
