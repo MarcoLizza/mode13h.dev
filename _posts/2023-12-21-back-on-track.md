@@ -28,7 +28,7 @@ For a short time, I feared that [GLFW](https://www.glfw.org/) was about to fade 
 
 In a similar vein, [Chipmunk2D](https://chipmunk-physics.net/) is in doubt as to whether or not to maintain it in the long term. Developments are at a standstill, considering that the library is stable and well established. However, [Eric Catto](https://github.com/erincatto), author of [box2d](https://box2d.org/), has been working for some time on [a C99-compliant version](https://github.com/erincatto/box2c) of his famous middleware (which is currently written in C++). I plan to try to integrate it very soon.
 
-Other than that, the first and most immediate objective will be to make the product (finally?) usable by the community. The official documentation absolutely must be completed (in many ways... from technical description, to examples/tutorials, to API documentation)! :P To this end, I intend to fix the 'presentation' of the project from the outset so as to make the request (veiled or not) for help from external contributors.
+Other than that, the first and most immediate objective will be to make the product (finally?) usable by the community. The official documentation absolutely must be completed (in many ways... from technical description, to examples/tutorials, to API documentation)! :P To this end, I intend to elaborate a bit on the project "presentation" so as to make request (veiled or not) for help from external contributors.
 
 Obviously, then, there are features to be added (quite a few) that I have been taking notes on over the past few months... and others that could potentially be refined, simplified or even (why not) eliminated because they are overabundant.
 
