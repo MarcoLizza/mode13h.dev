@@ -15,12 +15,12 @@ author: # Author details
 
 # Profile links, leave blank to ignore
 social:
-  twitter: MarcoLizza
+  bluesky: mode13h.dev
   github: MarcoLizza
-  mastodon: mastodon.gamedev.place/@mode13h
+  mastodon:
   itchio: mode13h
-  discord: 665298248541667367/665298858263445504
-  linkedin: marco-lizza
+  discord:
+  linkedin:
 
 # Google Analytics key, leave blank to ignore
 google:
