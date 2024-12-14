@@ -19,6 +19,8 @@ As a rule-of-a-thumb, common sense suggest that complex algorithms should be imp
 
 There are, however, other cases where it's a tad more difficult to draw the line between what should be left on scripting side and what should be implemented as natively.
 
+> **Important notice**: I'll be considering only the reference (PUC) Lua 5.4.7 release in the following. Neither [Luajit](https://luajit.org/) or [Luau](https://luau.org/) will be taken into account.
+
 ## A vector class
 
 Any self-respecting game-engine almost certainly feature an abstraction of the (either 2D or 3D) vector concept. In the case of **Tofu Engine** this is a strictly a two-dimensional vector, implemented as a class, with an idiomatic form of this type.
@@ -253,7 +255,7 @@ Basing on the results above, we can draw some final observations:
 
 This concludes our brief (but hopefully interesting) journey into the world of optimization as it relates to the implementation of a pseudo-native UDT.
 
-It was an opportunity to look in a little more detail at some aspects of Lua's FFI API, and in particular to understand that some operations can hide unexpected complexities that significantly impact performance. As is often the case, then, the choice of how to model a data type significantly affects the final performance.
+It was an opportunity to look in a little more detail at some aspects of Lua's FFI API, and in particular to understand that some operations can hide unexpected complexities that impact performance. As is often the case, then, the choice of how to model a data type significantly affects the final performance.
 
 Before leaving, however, we can take a chance to answer a final question: << How do I decide whether to keep an algorithm implementation in Lua or convert it to a native implementation? >>
 
