@@ -149,6 +149,6 @@ It depends.
 
 From a purely conceptual standpoint, I don't like that fluent-interfaces try and solve and solve a *syntax* issue with a design pattern (unlike Pascal and that solved this at a grammar level back in the '70s with the `With` statement). This adds unnecessary complexity and overhead. It might appear as "natural", but there's nothing natural in trying and "verbalize" a procedural-like language. It's just awkward, especially when only a subset of the language's data-type system follows this pattern.
 
-Nonetheless, when designing an*immutable* data type (e.g. a `String` class) it may come in handy. Unfortunately, implementing *immutable* UDTs in Lua is just expensive (due to the continuous creation of new tables to store the objects' instances that thrash the stack).
+Nonetheless, when designing an *immutable* data type (e.g. a `String` class) it may come in handy. Unfortunately, implementing *immutable* UDTs in Lua is just expensive (due to the continuous creation of new tables to store the objects' instances that thrash the stack).
 
 In conclusion, [I agree with Guido Van Rossum](https://mail.python.org/pipermail/python-dev/2003-October/038855.html) and I'm going to avoid using them in **#tofuengine**'s API.
