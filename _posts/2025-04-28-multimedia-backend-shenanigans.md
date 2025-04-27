@@ -46,7 +46,7 @@ I initially had chosen not to use SDL because it seemed a bit (too much?) overab
 
 ( just kidding... sort of... :P )
 
-Anyhow, SDL3 just seems **TOO** interesting to be ignored, in particular:
+Anyhow, SDL3 just seems *way too interesting* to be ignored, in particular:
 
 * it is written with full C99 support in mind, thing that not even GLFW does (I'm not proud of this, but I had to resort to a few tweaks to its code to selectively "silence" some of the more pedantic warnings that I personally enable by default and treat as blocking errors);
 * it has a far better gamepad support than ANY OTHER library (especially on Linux). I realised when I was working to the source code of another backend ([RGFW](https://github.com/ColleagueRiley/RGFW)) with the idea of extending it. Taking GLFW as a reference, I noticed that the gamepad support on Linux is really very (but very) primitive compared to SDL's which is Steam-compliant.
