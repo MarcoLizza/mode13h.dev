@@ -1,9 +1,7 @@
 ---
-title: 'Silver bullets'
-author: marco.lizza
+title: Silver bullets
 layout: post
-permalink: "/silver-bullets/"
-comments: true
+permalink: /silver-bullets/
 categories: 
   - snippets
 tags: 

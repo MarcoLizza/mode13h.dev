@@ -1,9 +1,7 @@
 ---
-title: 'Faster Inverse Square Root'
-author: marco.lizza
+title: Faster Inverse Square Root
 layout: post
-permalink: "/faster-inverse-square-root/"
-comments: true
+permalink: /faster-inverse-square-root/
 categories: 
   - rants
 tags: 

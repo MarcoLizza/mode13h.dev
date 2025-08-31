@@ -1,6 +1,5 @@
 ---
 title: Reinventing my own wheel
-author: marco.lizza
 layout: post
 permalink: /reinventing-my-own-wheel/
 categories:

@@ -1,9 +1,7 @@
 ---
-title: 'Going Mobile'
-author: marco.lizza
+title: Going Mobile
 layout: post
-permalink: "/going-mobile"
-comments: true
+permalink: /going-mobile/
 categories:
   - tofu-engine
   - devlog

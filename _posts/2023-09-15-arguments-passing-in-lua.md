@@ -1,9 +1,7 @@
 ---
-title: 'Function Arguments Passing'
-author: marco.lizza
+title: Function Arguments Passing
 layout: post
-permalink: "/function-arguments-passing"
-comments: true
+permalink: /function-arguments-passing/
 categories:
   - tofu-engine
   - lua

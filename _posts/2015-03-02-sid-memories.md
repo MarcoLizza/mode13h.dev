@@ -1,6 +1,5 @@
 ---
 title: SID Memories
-author: marco.lizza
 layout: post
 permalink: /sid-memories/
 categories:

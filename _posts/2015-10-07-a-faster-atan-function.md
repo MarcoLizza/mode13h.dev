@@ -1,9 +1,7 @@
 ---
-title: 'A Faster "atan()" Function'
-author: marco.lizza
+title: A Faster "atan()" Function
 layout: post
 permalink: /a-faster-atan-function/
-comments: true
 categories:
   - snippets
 tags:

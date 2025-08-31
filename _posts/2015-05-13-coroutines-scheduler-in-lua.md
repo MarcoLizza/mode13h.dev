@@ -1,6 +1,5 @@
 ---
 title: Coroutines Scheduler in Lua
-author: marco.lizza
 layout: post
 permalink: /coroutines-scheduler-in-lua/
 categories:

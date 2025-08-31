@@ -1,9 +1,7 @@
 ---
 title: About
-author: marco.lizza
 layout: page
 permalink: /about/
-comments: false
 ---
 Hi there.
 

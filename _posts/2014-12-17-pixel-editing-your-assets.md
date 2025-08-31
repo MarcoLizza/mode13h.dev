@@ -1,6 +1,5 @@
 ---
 title: Pixel editing your assets
-author: marco.lizza
 layout: post
 permalink: /pixel-editing-your-assets/
 categories:

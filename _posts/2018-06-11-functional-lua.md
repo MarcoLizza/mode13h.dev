@@ -1,9 +1,7 @@
 ---
-title: 'Functional Lua'
-author: marco.lizza
+title: Functional Lua
 layout: post
-permalink: "/functional-lua/"
-comments: true
+permalink: /functional-lua/
 categories: 
   - snippets
 tags: 

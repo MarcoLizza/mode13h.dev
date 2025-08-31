@@ -1,9 +1,7 @@
 ---
-title: 'A Case for Lua Performance'
-author: marco.lizza
+title: A Case for Lua Performance
 layout: post
-permalink: "/a-case-for-lua-performance"
-comments: true
+permalink: /a-case-for-lua-performance/
 categories:
   - rants
 tags: 
@@ -59,7 +57,7 @@ function Vector.new(x, y)
 end
 
 function Vector:add(v)
-  self.x, self.y = v.x, v.y
+  self.x, self.y = self.x + v.x, self.y + v.y
 end
 
 function Vector:dot(v)

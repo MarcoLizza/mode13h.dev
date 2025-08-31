@@ -1,9 +1,7 @@
 ---
 title: A modern one, please
-author: marco.lizza
 layout: post
 permalink: /a-modern-one-please/
-comments: true
 categories:
   - engine
 tags:

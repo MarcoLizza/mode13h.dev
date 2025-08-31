@@ -1,6 +1,5 @@
 ---
 title: Need more sugar?
-author: marco.lizza
 layout: post
 permalink: /need-more-sugar/
 categories:

@@ -1,6 +1,5 @@
 ---
 title: Virtual Machines From The Past
-author: marco.lizza
 layout: post
 permalink: /virtual-machines-from-the-past/
 categories:

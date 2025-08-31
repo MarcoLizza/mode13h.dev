@@ -1,6 +1,5 @@
 ---
 title: A Tiny Little Cafe
-author: marco.lizza
 layout: post
 permalink: /a-tiny-little-cafe/
 categories:

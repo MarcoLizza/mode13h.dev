@@ -1,9 +1,7 @@
 ---
-title: 'Fluent interfaces'
-author: marco.lizza
+title: Fluent interfaces
 layout: post
-permalink: "/fluent-interfaces/"
-comments: true
+permalink: /fluent-interfaces/
 categories: 
   - rants
 tags: 

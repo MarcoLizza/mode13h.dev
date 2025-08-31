@@ -1,9 +1,7 @@
 ---
-title: 'The making of a 2D Software Blitter #1'
-author: marco.lizza
+title: The making of a 2D Software Blitter #1
 layout: post
-permalink: "/the-making-of-a-2d-software-blitter-1"
-comments: true
+permalink: /the-making-of-a-2d-software-blitter-1/
 categories:
   - tofu-engine
   - devlog

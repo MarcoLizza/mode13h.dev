@@ -1,9 +1,7 @@
 ---
-title: 'tofu-engine #8'
-author: marco.lizza
+title: tofu-engine #8
 layout: post
-permalink: "/tofu-engine-8"
-comments: true
+permalink: /tofu-engine-8/
 categories:
   - tofu-engine
   - devlog

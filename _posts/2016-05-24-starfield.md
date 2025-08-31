@@ -1,9 +1,7 @@
 ---
-title: 'StarField (Analysis)'
-author: marco.lizza
+title: StarField (Analysis)
 layout: post
-permalink: "/starfield-analysis/"
-comments: true
+permalink: /starfield-analysis/
 categories:
   - analysis
 tags: 

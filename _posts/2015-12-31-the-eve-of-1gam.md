@@ -1,9 +1,7 @@
 ---
-title: 'The Eve Of #1gam'
-author: marco.lizza
+title: The Eve Of #1gam
 layout: post
-permalink: "/the-eve-of-1gam/"
-comments: true
+permalink: /the-eve-of-1gam/
 categories: 
   - 1gam
 tags: 

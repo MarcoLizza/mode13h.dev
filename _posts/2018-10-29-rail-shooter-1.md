@@ -1,9 +1,7 @@
 ---
-title: 'rail-shooter #1'
-author: marco.lizza
+title: rail-shooter #1
 layout: post
-permalink: "/rail-shooter-1/"
-comments: true
+permalink: /rail-shooter-1/
 categories: 
   - devlog
   - rail-shooter

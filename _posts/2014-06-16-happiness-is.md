@@ -1,6 +1,5 @@
 ---
-title: 'Happiness is...'
-author: marco.lizza
+title: Happiness is...
 layout: post
 permalink: /happiness-is/
 categories:

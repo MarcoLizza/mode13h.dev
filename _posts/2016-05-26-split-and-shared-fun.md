@@ -1,9 +1,7 @@
 ---
-title: 'Split & Shared Fun'
-author: marco.lizza
+title: Split & Shared Fun
 layout: post
-permalink: "/split-and-shared-fun/"
-comments: true
+permalink: /split-and-shared-fun/
 categories: 
   - thoughts
 tags: 

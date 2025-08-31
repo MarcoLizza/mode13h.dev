@@ -1,0 +1,22 @@
+---
+layout: default
+---
+<article class="post-no-title">
+  <div class="post-content">
+    <div class="command-line">
+      <span class="prompt">{{ site.prompt }}</span>
+      <span class="command">ls -la archive</span>
+    </div>
+    <ul class="post-list">
+      {% assign posts = site.posts | where_exp: 'post', 'post.title' %}
+      {% for post in posts %}
+        <li class="post-list-item">
+            <span class="permissions">-rw-r--r--</span>
+            <span class="author">{{ post.author | default: site.author.username }}</span>
+            <span class="date">{{ post.date | default: "1970-01-01" | date: "%Y-%m-%d" }}</span>
+            <a href="{{ post.url | relative_url }}">{{ post.date | date: "%Y" }}/{{ post.title }}</a>
+        </li>
+      {% endfor %}
+    </ul>
+  </div>
+</article>

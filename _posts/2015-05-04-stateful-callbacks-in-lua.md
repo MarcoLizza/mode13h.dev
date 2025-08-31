@@ -1,6 +1,5 @@
 ---
 title: Stateful Callbacks in Lua
-author: marco.lizza
 layout: post
 permalink: /stateful-callbacks-in-lua/
 categories:

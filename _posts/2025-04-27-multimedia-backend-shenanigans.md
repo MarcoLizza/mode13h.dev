@@ -1,9 +1,7 @@
 ---
-title: 'Multimedia Backend Shenanigans'
-author: marco.lizza
+title: Multimedia Backend Shenanigans
 layout: post
-permalink: "/multimedia-backend-shenanigans"
-comments: true
+permalink: /multimedia-backend-shenanigans/
 categories:
   - tofu-engine
   - devlog

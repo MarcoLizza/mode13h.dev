@@ -1,0 +1,156 @@
+:root {
+  --background-color: #111;
+  --text-color: #fff;
+  --terminal-text-color: #9e3;
+  --terminal-output-color: #888;
+  --terminal-output-link: #729fcf;
+}
+
+body {
+  background-color: var(--background-color);
+  color: var(--text-color);
+  font-family: 'Source Code Pro', monospace;
+  font-size: 16px;
+  line-height: 1.6;
+}
+
+.container {
+  max-width: 300px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+@media (min-width: 480px) {
+  .container { max-width: 400px; }
+}
+@media (min-width: 768px) {
+  .container { max-width: 600px; }
+}
+@media (min-width: 992px) {
+  .container { max-width: 800px; }
+}
+@media (min-width: 1200px) {
+  .container { max-width: 1024px; }
+}
+
+.site-header {
+  margin-bottom: 0px;
+  /* margin-bottom: 40px; */
+}
+
+.prompt-line {
+  display: flex;
+  align-items: center;
+}
+
+.prompt {
+  color: var(--terminal-text-color);
+}
+
+.command {
+  color: var(--text-color);
+}
+
+.command-output a {
+  color: var(--text-color);
+}
+
+a {
+  color: var(--text-color);
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+.command-output pre {
+  color: #fce94f;
+  font-size: 0.8em;
+  line-height: 1.2;
+  margin-top: 10px;
+}
+
+.post-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.post-list-item {
+  margin: 0;
+}
+
+.post-list-item a {
+  color: var(--terminal-output-link);
+}
+
+.post-list-item .permissions,
+.post-list-item .author,
+.post-list-item .date {
+  display: inline-block;
+  color: var(--terminal-output-color);
+  margin: 0px;
+}
+
+.post-meta {
+  color: #729fcf;
+  font-size: 0.9em;
+}
+
+.post-header {
+  margin-bottom: 20px;
+}
+
+.post-title {
+  color: #fce94f;
+  margin-top: 0;
+}
+
+.post-content h1, .post-content h2, .post-content h3, .post-content h4, .post-content h5, .post-content h6 {
+  color: #fce94f;
+}
+
+.post-content a {
+  color: #729fcf;
+}
+
+.site-footer {
+  margin-top: 40px;
+  text-align: center;
+  color: #888a85;
+}
+
+pre {
+  background-color: transparent;
+  border: none;
+}
+pre > code {
+  font-family: 'Source Code Pro', monospace;
+  border-radius: 0.5rem;
+  display: block;
+  white-space: pre;
+  padding: 1rem;
+}
+code {
+  font-family: 'Source Code Pro', monospace;
+  background-color: #222;
+  border: 1px solid #aaa;
+  border-radius: 0.5rem;
+  font-size: 80%;
+  margin: 0 .2rem;
+  padding: .2rem .5rem;
+  white-space: nowrap;
+}
+
+table {
+  margin: 0px auto;
+}
+
+.post {
+  margin-top: 16px;
+}
+
+.post-no-title {
+  margin-top: 0px;
+}

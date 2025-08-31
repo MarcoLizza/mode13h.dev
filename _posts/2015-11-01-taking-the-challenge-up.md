@@ -1,9 +1,7 @@
 ---
-title: 'Taking The Challenge Up'
-author: marco.lizza
+title: Taking The Challenge Up
 layout: post
-permalink: "/taking-the-challenge-up/"
-comments: true
+permalink: /taking-the-challenge-up/
 categories: 
   - 1gam
 tags: 

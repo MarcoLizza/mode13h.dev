@@ -1,9 +1,7 @@
 ---
-title: 'Custom Memory Allocators'
-author: marco.lizza
+title: Custom Memory Allocators
 layout: post
-permalink: "/custom-memory-allocators"
-comments: true
+permalink: /custom-memory-allocators/
 categories:
   - tofu-engine
   - rants

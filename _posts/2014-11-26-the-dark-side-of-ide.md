@@ -1,6 +1,5 @@
 ---
 title: The Dark Side of IDE?
-author: marco.lizza
 layout: post
 permalink: /the-dark-side-of-ide/
 categories:

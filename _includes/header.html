@@ -1,0 +1,40 @@
+<header class="site-header">
+  <div class="command-line">
+    <span class="prompt">{{ site.prompt }}</span>
+    <a href="{{ '/' | relative_url }}" class="command">cd ~</a>
+  </div>
+  <div class="command-line">
+    <span class="prompt">{{ site.prompt }}</span>
+    <span class="command">figlet mode13h.dev</span>
+  </div>
+  <div class="command-output">
+<pre>
+███    ███  ██████  ██████  ███████  ██ ██████  ██   ██    ██████  ███████ ██    ██ 
+████  ████ ██    ██ ██   ██ ██      ███      ██ ██   ██    ██   ██ ██      ██    ██ 
+██ ████ ██ ██    ██ ██   ██ █████    ██  █████  ███████    ██   ██ █████   ██    ██ 
+██  ██  ██ ██    ██ ██   ██ ██       ██      ██ ██   ██    ██   ██ ██       ██  ██  
+██      ██  ██████  ██████  ███████  ██ ██████  ██   ██ ██ ██████  ███████   ████   
+</pre>
+  </div>
+  {% if site.social.bluesky %}
+  <a title="Bluesky" href="https://bsky.app/profile/{{ site.social.bluesky }}" class="bluesky img-replace" target="_blank">Bluesky</a>
+  {% endif %}
+  {% if site.social.github %}
+  <a title="GitHub" href="https://github.com/{{ site.social.github }}" class="github img-replace" target="_blank">Github</a>
+  {% endif %} 
+  {% if site.social.facebook %}
+  <a title="Facebook" href="https://facebook.com/{{ site.social.facebook }}" class="facebook img-replace" target="_blank">Facebook</a>
+  {% endif %}
+  {% if site.social.itchio %}
+  <a title="itch.io" href="https://{{ site.social.itchio }}.itch.io/" class="itch-io img-replace" target="_blank">itch.io</a>
+  {% endif %}
+  {% if site.social.discord %}
+  <a title="Discord" href="https://discord.com/channels/{{ site.social.discord }}" class="discord img-replace" target="_blank">Discord</a>
+  {% endif %}
+  {% if site.social.mastodon %}
+  <a title="Mastodon" href="https://{{ site.social.mastodon }}/" class="mastodon img-replace" target="_blank">Mastodon</a>
+  {% endif %}
+  {% if site.social.linkedin %}
+  <a title="LinkedIn" href="https://www.linkedin.com/in/{{ site.social.linkedin }}" class="linkedin img-replace" target="_blank">LinkedIn</a>
+  {% endif %}
+</header>

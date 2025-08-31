@@ -1,6 +1,5 @@
 ---
 title: On the Abuse of a Physics Engine
-author: marco.lizza
 layout: post
 permalink: /on-the-abuse-of-a-physics-engine/
 categories:

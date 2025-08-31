@@ -1,9 +1,7 @@
 ---
-title: 'Paths & Curves'
-author: marco.lizza
+title: Paths & Curves
 layout: post
-permalink: "/paths-and-curves/"
-comments: true
+permalink: /paths-and-curves/
 categories:
   - math
 tags:

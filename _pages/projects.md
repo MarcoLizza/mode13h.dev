@@ -1,9 +1,7 @@
 ---
 title: Projects
-author: marco.lizza
 layout: page
 permalink: /projects/
-comments: false
 ---
 # #1GAM
 

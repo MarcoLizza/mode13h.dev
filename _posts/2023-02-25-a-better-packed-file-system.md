@@ -1,9 +1,7 @@
 ---
-title: 'A Better Packed File-System'
-author: marco.lizza
+title: A Better Packed File-System
 layout: post
-permalink: "/a-better-packed-file-system"
-comments: true
+permalink: /a-better-packed-file-system/
 categories:
   - tofu-engine
   - devlog

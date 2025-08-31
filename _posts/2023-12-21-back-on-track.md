@@ -1,9 +1,7 @@
 ---
-title: 'Back on Track'
-author: marco.lizza
+title: Back on Track
 layout: post
-permalink: "/back-on-track"
-comments: true
+permalink: /back-on-track/
 categories:
   - tofu-engine
   - devlog

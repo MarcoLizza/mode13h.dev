@@ -1,9 +1,7 @@
 ---
-title: 'Collisions'
-author: marco.lizza
+title: Collisions
 layout: post
-permalink: "/collisions/"
-comments: true
+permalink: /collisions/
 categories: 
   - rants
 tags: 

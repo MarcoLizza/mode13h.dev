@@ -1,6 +1,5 @@
 ---
 title: Elevators Logic Programming
-author: marco.lizza
 layout: post
 permalink: /elevators-logic-programming/
 categories:

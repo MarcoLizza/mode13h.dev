@@ -1,47 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
-
   {% include head.html %}
-
   <body>
-    <!-- Header -->
-    <header class="main-header">
-      <div class="container">
-        <div class="row">
-          <div class="column">
-            <a href="{{ site.baseurl }}/"><img src="{{ site.logo_url }}" class="logo" alt="{{ site.title }}" /></a>
-            <h6 class="description">{{ site.description }}</h6>
-            {% include header-links.html %}
-          </div>
-        </div>
-      </div>
-    </header>
-
-    <hr />
-
-    <!-- Primary Page Layout -->
-    <section class="main-section">
-      {{ content }}
-    </section>
-
-    <hr />
-
-    <!-- Footer -->
-    <footer class="main-footer">
-      <div class="container">
-        <div class="row">
-          <div class="column">
-            <a href="{{ site.baseurl }}/"><img class="logo" alt="logo" src="{{ site.logo_url }}" /></a>
-            {% include social-links.html %}
-            <p>{{ site.author.copyright }}</p>
-            <p><a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/"><img class="cc-banner" alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-sa/4.0/88x31.png" /></a></p>
-          </div>
-        </div>
-      </div>
-    </footer>
-
-    <!-- End Of Document -->
-    {% include disqus-count-embed.html %}
+    <div class="container">
+      {% include header.html %}
+      <main class="content">
+        {{ content }}
+      </main>
+      {% include footer.html %}
+    </div>
   </body>
-
 </html>
