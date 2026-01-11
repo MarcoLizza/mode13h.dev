@@ -39,7 +39,7 @@ That said, the actual behavior remains configurable (see the `config.h` file), b
 
 * Lua's GC is stopped immediately, in order to disable automatic and uncontrolled garbage-collection triggers.
 * The *incremental* garbage-collection mode is explicitly selected.
-* A single `LUA_GCSTEP` is executed during the low-priority update step.
+* A full cycle `LUA_GCSTEP` (see above) is executed during the low-priority update step.
 
 A nice additional feature is that, when compiled with `TOFU_INTERPRETER_GC_MODE` set to `GC_MODE_CONTINUOUS`, the game engine automatically checks the state of the garbage collector and performs a `LUA_GCSTEP` only when the GC is stopped. This makes it possible, if needed, to switch back to an "automatic" mode at run time with minimal effort, without the engine continuing to drive the collection explicitly.
 
