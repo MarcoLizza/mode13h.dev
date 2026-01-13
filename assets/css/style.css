@@ -67,8 +67,14 @@ a:hover {
 .command-output pre {
   color: #fce94f;
   font-size: 0.8em;
-  line-height: 1.2;
+  line-height: 1;
   margin-top: 10px;
+  letter-spacing: 0;
+  text-rendering: optimizeSpeed;
+  font-variant-ligatures: none;
+  font-feature-settings: "liga" 0, "calt" 0;
+  -webkit-font-smoothing: none;
+  -moz-osx-font-smoothing: auto;
 }
 
 .post-list {
