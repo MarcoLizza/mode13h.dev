@@ -6,12 +6,17 @@
   --terminal-output-link: #729fcf;
 }
 
+* {
+  box-sizing: border-box;
+}
+
 body {
   background-color: var(--background-color);
   color: var(--text-color);
   font-family: 'Source Code Pro', monospace;
   font-size: 16px;
   line-height: 1.6;
+  margin: 0;
 }
 
 html {
@@ -19,6 +24,7 @@ html {
 }
 
 .container {
+  width: 100%;
   max-width: 300px;
   margin: 0 auto;
   padding: 20px;
@@ -47,12 +53,21 @@ html {
   align-items: center;
 }
 
+.command-line {
+  overflow-x: auto;
+  white-space: nowrap;
+}
+
 .prompt {
   color: var(--terminal-text-color);
 }
 
 .command {
   color: var(--text-color);
+}
+
+.command-output {
+  overflow-x: auto;
 }
 
 .command-output a {
@@ -81,6 +96,28 @@ a:hover {
   -moz-osx-font-smoothing: auto;
 }
 
+.post-content {
+  overflow-wrap: break-word;
+}
+
+.post-content img,
+.post-content video,
+.post-content iframe,
+.page-banner {
+  max-width: 100%;
+}
+
+.post-content img,
+.post-content video,
+.page-banner {
+  height: auto;
+}
+
+.page-banner {
+  display: block;
+  margin: 0 0 20px;
+}
+
 .post-list {
   list-style: none;
   padding: 0;
@@ -88,11 +125,15 @@ a:hover {
 }
 
 .post-list-item {
+  display: flex;
+  flex-wrap: wrap;
+  column-gap: 0.75ch;
   margin: 0;
 }
 
 .post-list-item a {
   color: var(--terminal-output-link);
+  overflow-wrap: anywhere;
 }
 
 .post-list-item .permissions,
@@ -136,11 +177,14 @@ a:hover {
 pre {
   background-color: transparent;
   border: none;
+  max-width: 100%;
+  overflow-x: auto;
 }
 pre > code {
   font-family: 'Source Code Pro', monospace;
   border-radius: 0.5rem;
   display: block;
+  overflow-x: auto;
   white-space: pre;
   padding: 1rem;
 }
@@ -152,11 +196,14 @@ code {
   font-size: 80%;
   margin: 0 .2rem;
   padding: .2rem .5rem;
-  white-space: nowrap;
+  white-space: normal;
 }
 
 table {
+  display: block;
   margin: 0px auto;
+  max-width: 100%;
+  overflow-x: auto;
 }
 
 .post {

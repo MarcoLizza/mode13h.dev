@@ -49,11 +49,11 @@ Of course, there are several other aspects that need to be clarified and a decis
  * **cross-platform**: will it be a Windows-only engine? Or I plan to port it to other platforms, too?
  * **architecture**: old-fashioned OOP hierarchies or component based design?
 
- [1]: //mode13h.dev/happyness-is
- [2]: //luace.codeplex.com
- [3]: //www.squirrel-lang.org
- [4]: //studio.zerobrane.com
- [5]: //chaiscript.com
- [6]: //codeplea.com/game-scripting-languages
- [7]: //pastie.org/1721408
- [8]: //tinyscheme.sourceforge.net
+ [1]: https://mode13h.dev/happiness-is/
+ [2]: https://luace.codeplex.com
+ [3]: https://www.squirrel-lang.org
+ [4]: https://studio.zerobrane.com
+ [5]: https://chaiscript.com
+ [6]: https://codeplea.com/game-scripting-languages
+ [7]: https://pastie.org/1721408
+ [8]: https://tinyscheme.sourceforge.net

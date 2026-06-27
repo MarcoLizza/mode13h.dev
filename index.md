@@ -12,7 +12,9 @@ layout: default
       <li class="post-list-item">
         <span class="permissions">-rw-r--r--</span>
         <span class="author">{{ page.author | default: site.author.username }}</span>
-        <span class="date">{{ page.date | default: "1970-01-01" | date: "%Y-%m-%d" }}</span>
+        {% if page.date %}
+        <span class="date">{{ page.date | date: "%Y-%m-%d" }}</span>
+        {% endif %}
         <a href="{{ page.url | relative_url }}">{{ page.title }}</a>
       </li>
     {% endif %}

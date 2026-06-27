@@ -49,7 +49,7 @@ Anyhow, SDL3 just seems *way too interesting* to be ignored, in particular:
 * it is written with full C99 support in mind, thing that not even GLFW does (I'm not proud of this, but I had to resort to a few tweaks to its code to selectively "silence" some of the more pedantic warnings that I personally enable by default and treat as blocking errors);
 * it has a far better gamepad support than ANY OTHER library (especially on Linux). I realised when I was working to the source code of another backend ([RGFW](https://github.com/ColleagueRiley/RGFW)) with the idea of extending it. Taking GLFW as a reference, I noticed that the gamepad support on Linux is really very (but very) primitive compared to SDL's which is Steam-compliant.
 * it has native support for the [always-up-to-date database of gamepad definitions](https://github.com/mdqinc/SDL_GameControllerDB). Also GLFW support it, but only at a very basic level without really taking into account the exceptions represented by special input devices (such as those on consoles);
-* it has full support for **haptic feedback**, the lack of which (I have complained about it before)[/back-on-track];
+* it has full support for **haptic feedback**, the lack of which [I have complained about before](/back-on-track/);
 * it is supported by [Emscripten](https://en.wikipedia.org/wiki/Emscripten), which would comfortably open the door to [WebAssembly](https://en.wikipedia.org/wiki/WebAssembly) and to browsers support;
 
 But, above all, the fact that it is used by a **huge** number of commercial products makes us safe from the possibility of unexpected flaws and lack of continued and future support.

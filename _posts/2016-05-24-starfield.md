@@ -11,15 +11,15 @@ tags:
   - indiegame
 ---
 
-One of my goals for the #1GAM challenge is to experiment different mechanics and game-type every month. Due to time constraint, it has occurred to me that deploy a full-and-complete game in a month is nearly impossible. However, I working and refinable prototype is a more realistic target. Considered that I've chosen (LOVE)[http://love2d.org] as the base framework, at each month iteration I'm adding and improving with features the codebase.
+One of my goals for the #1GAM challenge is to experiment different mechanics and game-type every month. Due to time constraint, it has occurred to me that deploy a full-and-complete game in a month is nearly impossible. However, I working and refinable prototype is a more realistic target. Considered that I've chosen [LÖVE](https://love2d.org) as the base framework, at each month iteration I'm adding and improving with features the codebase.
 
 In the previous month (an article on the subject is under construction) I've enriched the entity management module. However, it was still very basic. The player, the list of foes, and the game objects (keys, doors, flares and such) where kept in separate variables. This wasn't going to be very scalable at all. So, for the March iteration I planned to extend it in order to be more generic and handle collisions, too. Also I wanted to implement some kind of particle effets, add sound playing, and spice a bit the camera handling.
 
-As for the game itself, I found that a (static) space-shooter could fit the theme. The player would stay at the centre of the *arena*, rotating and shooting. Much like (Asteroids)[http://].
+As for the game itself, I found that a (static) space-shooter could fit the theme. The player would stay at the centre of the *arena*, rotating and shooting. Much like [Asteroids](https://en.wikipedia.org/wiki/Asteroids_(video_game)).
 
-( at the beginning I had the idea to develop something similar to (Atari Combat)[https://en.wikipedia.org/wiki/Combat_(1977_video_game)]. Oh, my! The "tank game" was so much fun desplite that weird collision detection routines! The "tank pong" level and the controllable projectiles! Perhaps I will reuse this "idea" for a future game )
+( at the beginning I had the idea to develop something similar to [Atari Combat](https://en.wikipedia.org/wiki/Combat_(1977_video_game)). Oh, my! The "tank game" was so much fun desplite that weird collision detection routines! The "tank pong" level and the controllable projectiles! Perhaps I will reuse this "idea" for a future game )
 
-To some degree, I did something that was quite frequent back in the old days of the #gamedev, that is the game is developed and the game was pretty much a "cloak" for some ground-breaking technical innovation or feature ((Shadow of the Beast)[] come immediately to mind, technically-wise marvellous but the gameplay was lame to the least).
+To some degree, I did something that was quite frequent back in the old days of the #gamedev, that is the game is developed and the game was pretty much a "cloak" for some ground-breaking technical innovation or feature ([Shadow of the Beast](https://en.wikipedia.org/wiki/Shadow_of_the_Beast) comes immediately to mind, technically-wise marvellous but the gameplay was lame to the least).
 
 ## Entities
 
@@ -121,7 +121,7 @@ The game implementation, however, is a bit more complicated. Some entities are d
 
 The colliding entities list is then scanned and, according to the relatve collision type (player with enemy-bullet, enemy with player or player-bullet) an appropriate action is perfomed (spawn sparkles, destroy entity, play sounds, etc...).
 
-> Since the entities moves relatively slow and the update delta-time is small, we will unlikely experiment (tunnel effect)[http://fremycompany.com/BG/2012/Understanding-the-Tunnel-Effect-with-intuition-only-910/]. However, if the FPS drops either due to a clogged system or anything else, this is going to be a problem. For that reason, the collision resolution routine should implement a "prediction" algorithm. That is, it should check if give the current delta-time, any entity pair will "cross" their paths and, in the case, find the intersection point. This is left for future enhancements of the core framework.
+> Since the entities moves relatively slow and the update delta-time is small, we will unlikely experiment [tunnel effect](http://fremycompany.com/BG/2012/Understanding-the-Tunnel-Effect-with-intuition-only-910/). However, if the FPS drops either due to a clogged system or anything else, this is going to be a problem. For that reason, the collision resolution routine should implement a "prediction" algorithm. That is, it should check if give the current delta-time, any entity pair will "cross" their paths and, in the case, find the intersection point. This is left for future enhancements of the core framework.
 
 ## Particles
 
@@ -153,7 +153,7 @@ That's all for March 2016 game.
 
 The development took only 2 weeks, which is pretty good. The game is simple but, with the current technology, I always feel like I'm "wasting" resources. All it becomes *too* easy to implement, at the expense of resource usage (CPU and memory)- We really do over-elaborate things, nowadays.
 
-You can found the full source-code (here)[https://github.com/MarcoLizza/starfield]. You are welcome to have a peek of the project. If have any question and/or suggestion don't hesitate to contact me!
+You can found the full source-code [here](https://github.com/MarcoLizza/starfield). You are welcome to have a peek of the project. If have any question and/or suggestion don't hesitate to contact me!
 
 See ya!
 

@@ -1,5 +1,8 @@
 title: "dev>mode13h"
 description: ~ night-time gamedev & geek ~
+url: "https://mode13h.dev"
+baseurl: ""
+logo: /assets/images/logo.png
 
 author: # Author details
   username: root
@@ -43,5 +46,5 @@ jekyll_tidy:
   compress_html: false
 
 # Terminal theme settings
-prompt: "[reader@mode13h.dev ~]$"
+prompt: "[guest ~]$"
 recent_posts_limit: 16
