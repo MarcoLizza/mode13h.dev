@@ -47,4 +47,4 @@ Finally, a useful byproduct of this work has been a refinement of the run-time d
 
 ( I'm also considering to add a graphical overlay to report the current performance information )
 
-This naturally led to a further consideration: when dealing with time-varying metrics, it is often useful to apply a [moving average](https://en.wikipedia.org/wiki/Moving_average)... but which variant should one choose? Let's explore that in the next post! :)
+This naturally led to a further consideration: when dealing with time-varying metrics, it is often useful to apply a [moving average](https://en.wikipedia.org/wiki/Moving_average)... but which variant should one choose? Let's explore that in a future post! :)
