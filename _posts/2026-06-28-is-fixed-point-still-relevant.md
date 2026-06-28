@@ -28,6 +28,6 @@ This led me to write a small utility library to pack the fixed-point functions I
 
 I won't be using it everywhere across my codebase, 'though, especially to replace what naturally lives in floating point. Floating point math is perfectly suited for a lot of higher-level calculations. Also, I would avoid using it where values can easily escape the range above, as the library does not provide saturation or overflow protection. I'm aiming for is more of a hybrid strategy: do the comfortable high-level setup in `float`, convert stable starting values and increments once, then let fixed point handle the hot inner portion where it actually buys something.
 
-You can find the library [here](https://github.com/MarcoLizza/libfix32), along with the relevant benchmark results.
+You can find the library [here](https://github.com/MarcoLizza/libfix32), along with the benchmark results.
 
 That is all for now. See ya next. :)
