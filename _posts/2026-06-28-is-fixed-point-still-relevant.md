@@ -1,7 +1,7 @@
 ---
-title: Is Fixed-Point Arithmetic Still Relevant?
+title: Is Fixed-Point Still Relevant?
 layout: post
-permalink: /is-fixed-point-arithmetic-still-relevant/
+permalink: /is-fixed-point-still-relevant/
 categories:
   - tofu-engine
   - devlog
